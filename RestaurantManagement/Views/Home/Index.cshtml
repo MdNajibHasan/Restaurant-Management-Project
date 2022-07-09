@@ -1,0 +1,612 @@
+﻿@inject SignInManager<ApplicationUser> signInManager
+
+
+
+    @{
+        ViewBag.Title = "Dream Cafe";
+    }
+
+
+
+
+
+
+    <!-- Header part -->
+    <header class="header">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="logo">
+                    <a href="#">
+                        <img src="~/Images/Logo/logo dreams-modified.png" alt="logo">
+                    </a>
+                    <div class="resName">Dream Cafe</div>
+                </div>
+                
+                
+                <button type="button" class="nav-toggler">
+                    <span></span>
+                </button>
+                
+
+
+                <nav class="nav">
+                    <ul>
+                        <li class="nav-item"><a  href="#home">home</a></li>
+                        <li class="nav-item"><a  href="#about">about</a></li>
+                        <li class="nav-item"><a  href="#our-menu">our menu</a></li>
+                        <li class="nav-item"><a  href="#testimonials">testimonials</a></li>
+                        <li class="nav-item"><a  href="#team">team</a></li>
+
+                        @if(signInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <form method="post" asp-action="logout" asp-controller="Account">
+                                    <button  type="submit"  class="nbt">
+                                        Logout 
+                                    
+                                    </button>
+                                </form>
+                            </li>
+                           @* <li class="nav-item">
+                                <a  asp-controller="UserAccount" asp-action="Profile" class="nav-link">Profile</a>
+                            </li>*@
+                        } 
+
+                        else
+                        {
+                            <li class="nav-item"><a  asp-controller="Account" asp-action="login" class="nav-link">Login</a></li>
+                        }
+
+                    
+
+                        <li class="nav-item"><a href="#contact">contact us</a></li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+<!-- Header end -->
+
+
+   
+
+   
+
+
+    <!-- home section start -->
+
+
+    <section class="home-section" id="home">
+        <div class="home-bg"></div>
+        <div class="container">
+            <div class="row min-vh-100 align-items-center">
+                <div class="home-text">
+                    <h1>Dream Cafe Restaurent</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A perspiciatis officiis, cumque nulla tenetur, ullam asperiores eos voluptas distinctio eligendi iure provident unde. Harum quisquam id quod ducimus minima similique fugiat dolorum, cupiditate accusamus commodi sunt molestias saepe praesentium amet. </p>
+                    
+                    <a href="#our-menu" class="newbtn newbtn-default">our menu</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- home section end -->
+
+
+
+    <!-- about section start-->
+
+    <section class="about-section sec-padding" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="section-title">
+                    <h2 data-title="our story">
+                        about us
+                    </h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="aboutText col-6">
+                    <h3>Welcome To Dream Cafe Restaurent</h3>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat, atque ipsam ipsum veniam quos nemo tenetur nobis, sed in reiciendis vero sit ullam, facilis sapiente qui odit? Fugit officiis sequi at minus quae ratione veniam quibusdam facere, voluptates tempore, velit, dolore veritatis expedita! Veritatis, voluptatibus officiis nulla optio dolor delectus libero aperiam pariatur nam incidunt assumenda voluptatum quod perspiciatis eum.</p>
+                    <a href="#our-menu" class="newbtn newbtn-default">check our menu</a>
+                </div>
+                <div class="aboutImg col-6">
+                    <div class="img-box">
+                        <h3>20+ years experience</h3>
+                        <img src="Images/Images 2nd/about-img.jpg" alt="about img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- about section end -->
+   
+    <!-- menu section start -->
+
+
+
+    <section class=" menu-section sec-padding" id="our-menu">
+        <div class="container">
+            <div class="row">
+                <div class="section-title">
+                    <h2 data-title="order-now  ">
+                        our menu
+                    </h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="menu-tabs">
+                    <button type="button" class="menu-tab-item active" data-target="#lunch">lunch</button>
+                    <button type="button" class="menu-tab-item" data-target="#dinner">dinner</button>
+                    <button type="button" class="menu-tab-item" data-target="#drinks">drinks</button>
+                    <button type="button" class="menu-tab-item" data-target="#desserts">desserts</button>
+                </div>
+            </div>
+
+            <div class="row menu-tab-content active" id="lunch">
+                
+                <div class="col-6">
+                    <div class="menuItem">
+                    <div class="menu-item-title">
+                        <img src="Images/Images 2nd/menu/1.jpg" alt="menu item thumbnail">
+                        <h3>lunch item</h3>
+                    </div>
+                    <div class="menu-item-price">
+                        $40.00
+                    </div>
+                </div>
+
+
+                <div class="menuItem">
+                    <div class="menu-item-title">
+                        <img src="Images/Images 2nd/menu/2.jpg" alt="menu item thumbnail">
+                        <h3>lunch item</h3>
+                    </div>
+                    <div class="menu-item-price">
+                        $40.00
+                    </div>
+                </div>
+
+
+
+                <div class="menuItem">
+                    <div class="menu-item-title">
+                        <img src="Images/Images 2nd/menu/3.jpg" alt="menu item thumbnail">
+                        <h3>lunch item</h3>
+                    </div>
+                    <div class="menu-item-price">
+                        $40.00
+                    </div>
+                </div>
+
+
+                <div class="menuItem">
+                    <div class="menu-item-title">
+                        <img src="Images/Images 2nd/menu/4.jpg" alt="menu item thumbnail">
+                        <h3>lunch item</h3>
+                    </div>
+                    <div class="menu-item-price">
+                        $40.00
+                    </div>
+                </div>
+
+                </div>
+
+
+                <div class="col-6">
+                    <div class="menuItem">
+                    <div class="menu-item-title">
+                        <img src="Images/Images 2nd/menu/5.jpg" alt="menu item thumbnail">
+                        <h3>lunch item</h3>
+                    </div>
+                    <div class="menu-item-price">
+                        $40.00
+                    </div>
+                </div>
+
+                <div class="menuItem">
+                    <div class="menu-item-title">
+                        <img src="Images/Images 2nd/menu/6.jpg" alt="menu item thumbnail">
+                        <h3>lunch item</h3>
+                    </div>
+                    <div class="menu-item-price">
+                        $40.00
+                    </div>
+                </div>
+
+
+
+                <div class="menuItem">
+                    <div class="menu-item-title">
+                        <img src="Images/Images 2nd/menu/7.jpg" alt="menu item thumbnail">
+                        <h3>lunch item</h3>
+                    </div>
+                    <div class="menu-item-price">
+                        $40.00
+                    </div>
+                </div>
+
+
+                <div class="menuItem">
+                    <div class="menu-item-title">
+                        <img src="Images/Images 2nd/menu/8.jpg" alt="menu item thumbnail">
+                        <h3>lunch item</h3>
+                    </div>
+                    <div class="menu-item-price">
+                        $40.00
+                    </div>
+                </div>
+                </div>
+
+                
+
+            </div>
+            <div class="row menu-tab-content" id="dinner">
+
+                <div class="col-6">
+                    <div class="menuItem">
+                    <div class="menu-item-title">
+                        <img src="Images/Images 2nd/menu/1.jpg" alt="menu item thumbnail">
+                        <h3>dinner item</h3>
+                    </div>
+                    <div class="menu-item-price">
+                        $30.00
+                    </div>
+                </div>
+
+
+
+                <div class="menuItem">
+                    <div class="menu-item-title">
+                        <img src="Images/Images 2nd/menu/2.jpg" alt="menu item thumbnail">
+                        <h3>dinner item</h3>
+                    </div>
+                    <div class="menu-item-price">
+                        $30.00
+                    </div>
+                </div>
+                </div>
+
+
+                <div class="col-6">
+                    <div class="menuItem">
+                    <div class="menu-item-title">
+                        <img src="Images/Images 2nd/menu/3.jpg" alt="menu item thumbnail">
+                        <h3>dinner item</h3>
+                    </div>
+                    <div class="menu-item-price">
+                        $30.00
+                    </div>
+                </div>
+
+
+
+                <div class="menuItem">
+                    <div class="menu-item-title">
+                        <img src="Images/Images 2nd/menu/4.jpg" alt="menu item thumbnail">
+                        <h3>dinner item</h3>
+                    </div>
+                    <div class="menu-item-price">
+                        $30.00
+                    </div>
+                </div>
+                </div>
+
+
+
+            </div>
+
+
+            <div class="row menu-tab-content" id="drinks">
+
+                <div class="col-6">
+                    <div class="menuItem">
+                    <div class="menu-item-title">
+                        <img src="Images/Images 2nd/menu/1.jpg" alt="menu item thumbnail">
+                        <h3>drink item</h3>
+                    </div>
+                    <div class="menu-item-price">
+                        $20.00
+                    </div>
+                </div>
+
+
+
+                <div class="menuItem">
+                    <div class="menu-item-title">
+                        <img src="Images/Images 2nd/menu/2.jpg" alt="menu item thumbnail">
+                        <h3>drink item</h3>
+                    </div>
+                    <div class="menu-item-price">
+                        $20.00
+                    </div>
+                </div>
+                </div>
+
+
+                <div class="col-6">
+                    <div class="menuItem">
+                        <div class="menu-item-title">
+                            <img src="Images/Images 2nd/menu/3.jpg" alt="menu item thumbnail">
+                            <h3>drink item</h3>
+                        </div>
+                        <div class="menu-item-price">
+                            $20.00
+                        </div>
+                    </div>
+
+                    <div class="menuItem">
+                        <div class="menu-item-title">
+                            <img src="Images/Images 2nd/menu/4.jpg" alt="menu item thumbnail">
+                            <h3>drink item</h3>
+                        </div>
+                        <div class="menu-item-price">
+                            $20.00
+                        </div>
+                    </div>
+                
+                 </div>
+
+            </div>
+
+
+            <div class="row menu-tab-content" id="desserts">
+
+
+
+                <div class="col-6">
+                    <div class="menuItem">
+                        <div class="menu-item-title">
+                            <img src="Images/Images 2nd/menu/1.jpg" alt="menu item thumbnail">
+                            <h3>dessert item</h3>
+                        </div>
+                        <div class="menu-item-price">
+                            $10.00
+                        </div>
+                    </div>
+
+
+                    <div class="menuItem">
+                        <div class="menu-item-title">
+                            <img src="Images/Images 2nd/menu/2.jpg" alt="menu item thumbnail">
+                            <h3>dessert item</h3>
+                        </div>
+                        <div class="menu-item-price">
+                            $10.00
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-6">
+                    <div class="menuItem">
+                        <div class="menu-item-title">
+                            <img src="Images/Images 2nd/menu/3.jpg" alt="menu item thumbnail">
+                            <h3>dessert item</h3>
+                        </div>
+                        <div class="menu-item-price">
+                            $10.00
+                        </div>
+                    </div>
+
+
+                    <div class="menuItem">
+                        <div class="menu-item-title">
+                            <img src="Images/Images 2nd/menu/4.jpg" alt="menu item thumbnail">
+                            <h3>dessert item</h3>
+                        </div>
+                        <div class="menu-item-price">
+                            $10.00
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- menu section end -->
+
+
+
+    <!-- testimonials section start -->
+
+    <section class="testimonials-section sec-padding" id="testimonials">
+        <div class="container">
+            <div class="row">
+                <div class="section-title">
+                    <h2 data-title="testmonials">
+                        some feedbacks
+                    </h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="testi-item col-sm">
+                    <div class="testi-author">
+                        <div class="testi-author-name">
+                            <h3>najib hasan</h3>
+                            <span>food specialist</span>
+                        </div>
+                        <div class="testi-author-img">
+                            <img src="Images/Testimonials/img1.jpg" alt="test author img">
+                        </div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat sed, quia temporibus molestias corrupti autem! Atque soluta dolor sapiente dolorem.</p>
+                    <div class="ratings">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+
+                <div class="testi-item col-sm">
+                    <div class="testi-author">
+                        <div class="testi-author-name">
+                            <h3>najib hasan</h3>
+                            <span>food specialist</span>
+                        </div>
+                        <div class="testi-author-img">
+                            <img src="Images/Testimonials/img2.jpg" alt="test author img">
+                        </div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat sed, quia temporibus molestias corrupti autem! Atque soluta dolor sapiente dolorem.</p>
+                    <div class="ratings">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+
+
+                <div class="testi-item col-sm">
+                    <div class="testi-author">
+                        <div class="testi-author-name">
+                            <h3>najib hasan</h3>
+                            <span>food specialist</span>
+                        </div>
+                        <div class="testi-author-img">
+                            <img src="Images/Testimonials/img3.jpg" alt="test author img">
+                        </div>
+                    </div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat sed, quia temporibus molestias corrupti autem! Atque soluta dolor sapiente dolorem.</p>
+                    <div class="ratings">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- testimonials section end -->
+
+
+    <!-- team section start -->
+
+    <section class="team-section sec-padding" id="team">
+        <div class="container">
+            <div class="row">
+                <div class="section-title">
+                    <h2 data-title="team">our chefs</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="team-item col-sm">
+                    <img src="Images/Images 2nd/team/1.jpg" alt="team iteam">
+                    <div class="team-item-info">
+                        <h3>raf himachal</h3>
+                        <p>head chef</p>
+                    </div>
+                </div>
+
+
+                <div class="team-item col-sm">
+                    <img src="Images/Images 2nd/team/2.jpg" alt="team iteam">
+                    <div class="team-item-info">
+                        <h3>raf himachal</h3>
+                        <p>head chef</p>
+                    </div>
+                </div>
+
+
+                <div class="team-item col-sm">
+                    <img src="Images/Images 2nd/team/3.jpg" alt="team iteam">
+                    <div class="team-item-info">
+                        <h3>raf himachal</h3>
+                        <p>head chef</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- team section end -->
+
+
+
+
+
+    <!--Register section start-->
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--Register section end-->
+
+
+
+
+    <!-- footer start -->
+
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="footer-item col-sm">
+                    <h3>our location</h3>
+                    <p>xyz Street, Sector-12, <br> Badarganj - Rangpur</p>
+                </div>
+                <div class="footer-item col-sm">
+                    <h3>opening hours</h3>
+                    <p>Monday to Sunday <br> 9:00 AM - 10:00 PM</p>
+                </div>
+                <div class="footer-item col-sm">
+                    <h3>contact us</h3>
+                    <p>+880 131 698 3005</p>
+                    <p>najib19977@gmail.com</p>
+                    <div class="social-links">
+                        <a href="#" ><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" ><i class="fab fa-instagram"></i></a>
+                        <a href="#" ><i class="fab fa-twitter"></i></a>
+                        <a href="#" ><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="copyright">
+                    &copy; 2021 - Designed by The NH web-kit
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- footer end -->
+
+
+   
+

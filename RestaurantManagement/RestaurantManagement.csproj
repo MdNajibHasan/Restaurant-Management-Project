@@ -1,0 +1,63 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Images\About image\" />
+    <Folder Include="wwwroot\Images\Menu Images\" />
+    <Folder Include="wwwroot\Images\Team images\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Images\footer img.jpg" />
+    <None Include="wwwroot\Images\front imge\starting-your-download.htm" />
+    <None Include="wwwroot\Images\Home page\courtney-pickens-8fv6rTK5W1k-unsplash.jpg" />
+    <None Include="wwwroot\Images\Home page\faisal-waheed-NWG-vYPZDoM-unsplash.jpg" />
+    <None Include="wwwroot\Images\Home page\img1.jpg" />
+    <None Include="wwwroot\Images\Home page\img2.jpg" />
+    <None Include="wwwroot\Images\Images 2nd\about-img.jpg" />
+    <None Include="wwwroot\Images\Images 2nd\footer-bg.jpg" />
+    <None Include="wwwroot\Images\Images 2nd\home-bg.jpg" />
+    <None Include="wwwroot\Images\Images 2nd\logo.png" />
+    <None Include="wwwroot\Images\Images 2nd\menu\1.jpg" />
+    <None Include="wwwroot\Images\Images 2nd\menu\2.jpg" />
+    <None Include="wwwroot\Images\Images 2nd\menu\3.jpg" />
+    <None Include="wwwroot\Images\Images 2nd\menu\4.jpg" />
+    <None Include="wwwroot\Images\Images 2nd\menu\5.jpg" />
+    <None Include="wwwroot\Images\Images 2nd\menu\6.jpg" />
+    <None Include="wwwroot\Images\Images 2nd\menu\7.jpg" />
+    <None Include="wwwroot\Images\Images 2nd\menu\8.jpg" />
+    <None Include="wwwroot\Images\Images 2nd\team\1.jpg" />
+    <None Include="wwwroot\Images\Images 2nd\team\2.jpg" />
+    <None Include="wwwroot\Images\Images 2nd\team\3.jpg" />
+    <None Include="wwwroot\Images\Images 2nd\testimonials\1.jpg" />
+    <None Include="wwwroot\Images\Images 2nd\testimonials\2.jpg" />
+    <None Include="wwwroot\Images\Images 2nd\testimonials\3.jpg" />
+    <None Include="wwwroot\Images\Logo\logo dreams-modified.png" />
+    <None Include="wwwroot\Images\Logo\logo dreams.jpg" />
+    <None Include="wwwroot\Images\Testimonials\img1.jpg" />
+    <None Include="wwwroot\Images\Testimonials\img2.jpg" />
+    <None Include="wwwroot\Images\Testimonials\img3.jpg" />
+    <None Include="wwwroot\JS1\main.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,69 @@
+﻿@model IEnumerable<IdentityRole>
+
+    @{
+        ViewBag.Title = "Dream Cafe";
+    }
+
+
+
+  <section class="sec-padding roles">
+
+        <div class="container">
+            
+                <div class="row">
+                    <div class="section-title">
+                        <h2 data-title="All Roles">All Roles</h2>
+                        </div>
+                </div>
+            
+        </div> 
+
+        <div class="container">
+            @if(Model.Any())
+                    {
+                        foreach(var role in Model)
+            {
+                <div class="card mb-3">
+                    <div class="card-header text-black" >
+                        Role Id: @role.Id
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-black">@role.Name</h5>
+                    </div>
+                    <div class="card-footer">
+                        <a  class="btn btn-primary" asp-controller="Administration" asp-action="EditRole" asp-route-id="@role.Id">Edit</a>
+                        <a  class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            }
+        }
+                    else
+                    {
+                        <div class="card ">
+                            <div class="card-header">
+                                No roles created yet.
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    Use the button below to create a role.
+                                </h5>
+                                
+                            </div>
+                        </div>
+
+                    }
+
+                    <div>
+                        <a asp-controller="administration" asp-action="CreateRole" class="btn btn-primary" >Create Role</a>
+                    </div>
+        </div>
+
+       
+        <div class="mt-5 ms-4">
+               <a asp-controller="Home" asp-action="Admin" class="newbtn-default newbtn">Back to Home</a>
+        </div>
+     
+
+                        
+                
+  </section>      

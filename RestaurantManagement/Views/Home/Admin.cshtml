@@ -1,0 +1,128 @@
+﻿
+
+@inject SignInManager<ApplicationUser> signInManager
+
+@{
+        ViewBag.Title = "Dream Cafe";
+ }
+
+
+
+
+
+
+    <!-- Header part -->
+    <header class="header">
+        <div class="container">
+            <div class="row justify-content-between align-items-center">
+                <div class="logo">
+                    <a href="#">
+                        <img src="~/Images/Logo/logo dreams-modified.png" alt="logo">
+                    </a>
+                    <div class="resName">Dream Cafe</div>
+                </div>
+                
+                
+                <button type="button" class="nav-toggler">
+                    <span></span>
+                </button>
+                
+
+
+                <nav class="nav">
+                    <ul>
+                        <li class="nav-item"><a  href="#home">home</a></li>
+                        @*<li class="nav-item"><a  href="#about">about</a></li>*@
+                        <li class="nav-item"><a  asp-controller="Admin" asp-action="Menu" class="nav-link">Menu</a></li>
+                        <li class="nav-item"><a  asp-controller="Administration" asp-action="ListRoles" class="nav-link">List Roles</a></li>
+                        <li class="nav-item"><a  href="#team">team</a></li>
+
+                        @if(signInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item">
+                                <form method="post" asp-action="logout" asp-controller="Account">
+                                    <button  type="submit"  class="nbt">
+                                        Logout 
+                                    
+                                    </button>
+                                </form>
+                            </li>
+                           @* <li class="nav-item">
+                                <a  asp-controller="UserAccount" asp-action="Profile" class="nav-link">Profile</a>
+                            </li>*@
+                        } 
+
+                        else
+                        {
+                            <li class="nav-item"><a  asp-controller="Account" asp-action="login" class="nav-link">Login</a></li>
+                        }
+
+                    
+
+                        @*<li class="nav-item"><a href="#contact">contact us</a></li>*@
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+<!-- Header end -->
+
+
+
+
+<!-- home section start -->
+
+
+    <section class="home-section" id="home">
+        <div class="home-bg"></div>
+        <div class="container">
+            <div class="row min-vh-100 align-items-center">
+                <div class="home-text">
+                    <h1>Dream Cafe Restaurent</h1>
+                    <h3 >Welcome to the admin panel. </h3>
+                    
+                    <form enctype="multipart/form-data" class="mt-5" method="post">
+
+                        <div class="form-group row">
+                            <label class="newbtn col-sm-2 text-lg-start"  >Change home Image</label>
+                        
+                            <div class="col-sm-10">
+                                <div class="custom-file">
+                            
+                                    <input  class="custom-file-input"/>
+                                    
+                            
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="mt-3 form-group row">
+                            <label class="newbtn col-sm-2 text-lg-start"  >Change Icon</label>
+                        
+                            <div class="col-sm-10">
+                                <div class="custom-file">
+                            
+                                    <input  class="custom-file-input"/>
+                                    
+                            
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="mt-3">
+                            <button class="newbtn newbtn-default" type="submit">Change Image</button>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- home section end -->
