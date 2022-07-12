@@ -5,7 +5,7 @@
 
 
 
-<section class="sec-padding  loginForm" >
+<section class="sec-padding loginForm" >
 
         <div class="container">
 
@@ -19,11 +19,39 @@
         </div>
 
 
-        <div class="container">
-            <h3>Add new menu item:</h3>
-            <button asp-controller="Admin" asp-action="MenuAdd" class="newbtn newbtn-default">Add New Menu</button>
-            <h3 class="mt-5">View all menu items:</h3>
-            <button asp-controller="Admin" asp-action="ViewMenu" class="newbtn newbtn-default">View Menu</button>
+        <div >
+            
+            <div class="row">
+                <div class="col-sm">
+                    <h3>Add new menu item:</h3>
+                    <a asp-controller="Admin" asp-action="MenuAdd" class="newbtn newbtn-default">Add New Menu</a>
+                </div>
+
+                <div class="col-sm">
+                    
+                    <h3>View all menu items:</h3>
+                    
+                    
+                    <div class="row">
+                        <div class="col-sm">
+                            <a asp-controller="Admin" asp-action="ViewMenu" class="newbtn newbtn-default">Breakfast</a>
+                        </div>
+                        <div class="col-sm mt-5">
+                            <a asp-controller="Admin" asp-action="ViewMenu" class="newbtn newbtn-default">Lunch</a>
+                        </div>
+                        <div class="col-sm mt-5">
+                            <a asp-controller="Admin" asp-action="ViewMenu" class="newbtn newbtn-default">Dinner</a>
+                        </div>
+                        <div class="col-sm mt-5">
+                            <a asp-controller="Admin" asp-action="ViewMenu" class="newbtn newbtn-default">Drinks</a>
+                        </div>
+                    </div>
+                    
+
+                    
+                    
+                </div>
+            </div>
             
         </div>
 

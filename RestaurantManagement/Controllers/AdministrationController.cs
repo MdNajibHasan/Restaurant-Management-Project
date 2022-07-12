@@ -64,6 +64,12 @@ namespace RestaurantManagement.Controllers
             return View(roles);
         }
 
+       /* [HttpGet]
+        public ViewResult EditRole()
+        {
+            return View();
+        }*/
+
 
         [HttpGet]
         public async Task<IActionResult> EditRole(string id)
@@ -82,16 +88,21 @@ namespace RestaurantManagement.Controllers
                 RoleName = role.Name
             };
 
-            foreach (var user in userManager.Users)
+            /*foreach (var user in userManager.Users)
             {
-                if(await userManager.IsInRoleAsync(user,role.Name))
+                if (await userManager.IsInRoleAsync(user, role.Name))
                 {
                     model.Users.Add(user.UserName);
                 }
-            }
+            }*/
 
             return View(model);
         }
-        
+
+
+
+
+
+
     }
 }
