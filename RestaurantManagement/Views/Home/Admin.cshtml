@@ -32,8 +32,23 @@
                 <nav class="nav">
                     <ul>
                         <li class="nav-item"><a  href="#home">home</a></li>
-                        @*<li class="nav-item"><a  href="#about">about</a></li>*@
-                        <li class="nav-item"><a  asp-controller="Admin" asp-action="Menu" class="nav-link">Menu</a></li>
+                        
+                        
+
+                        <div class="nav-item dropdown">
+                            <a class="dropbtn">Menu
+                                <i class="fa fa-caret-down"></i>
+                            </a>
+                            
+                            <div class="dropdown-content">
+                                <a asp-controller="Menu" asp-action="Breakfast">Breakfast</a>
+                                <a asp-controller="Menu" asp-action="Lunch">Lunch</a>
+                                <a asp-controller="Menu" asp-action="Dinner">Dinner</a>
+                                <a asp-controller="Menu" asp-action="Drinks">Drinks</a>
+                            </div>
+                        
+                        </div>
+                        <li class="nav-item"><a  asp-controller="Admin" asp-action="AddMenu" class="nav-link">Add Items</a></li>
                         <li class="nav-item"><a  asp-controller="Administration" asp-action="ListRoles" class="nav-link">List Roles</a></li>
                         <li class="nav-item"><a  href="#team">team</a></li>
 

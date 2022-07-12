@@ -2,24 +2,24 @@
 
 namespace RestaurantManagement.Controllers
 {
-    public class AdminController : Controller
+    public class MenuController : Controller
     {
-
-
-
-
-        public ViewResult menu()
+        public ViewResult Breakfast()
         {
             return View();
         }
 
-        public ViewResult AddMenu()
+        public ViewResult Lunch()
         {
             return View();
         }
 
+        public ViewResult Dinner()
+        {
+            return View();
+        }
 
-        public ViewResult ViewMenu()
+        public ViewResult Drinks()
         {
             return View();
         }

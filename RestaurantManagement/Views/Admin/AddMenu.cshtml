@@ -1,0 +1,82 @@
+﻿@model MenuItemViewModel
+
+
+
+
+
+
+<section class="sec-padding loginForm" >
+
+        <div class="container">
+
+            <div>
+                <div class="row">
+                    <div class="section-title">
+                        <h2 data-title="Add Menu Item">Add Menu Item</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <form method="post">
+            <div class="row">
+                <label asp-for="MenuItemId">Item Id: </label>
+                <input asp-for="MenuItemId" placeholder="Item Id"/>
+                <span asp-validation-for="MenuItemId"></span>
+            </div>
+
+            <div class="row mt-3">
+                <label asp-for="MenuId">Menu Id: </label>
+                <input asp-for="MenuId" placeholder="Menu Id"/>
+                <span asp-validation-for="MenuId"></span>
+            </div>
+
+            <div class="row mt-3">
+                <label asp-for="MenuItemTitle">Item Title </label>
+                <input asp-for="MenuItemTitle" placeholder="Item Title"/>
+                <span asp-validation-for="MenuItemTitle"></span>
+            </div>
+
+            <div class="row mt-3">
+                <label asp-for="MenuItemDescription">Item Description </label>
+                <input asp-for="MenuItemDescription" placeholder="Item Description"/>
+                <span asp-validation-for="MenuItemDescription"></span>
+            </div>
+
+            <div class="row mt-3">
+                <label asp-for="MenuItemQuantity">Item Quantity </label>
+                <input asp-for="MenuItemQuantity" placeholder="Item Quantity"/>
+                <span asp-validation-for="MenuItemQuantity"></span>
+            </div>
+
+            <div class="row mt-3">
+                <label asp-for="MenuItemCost">Item Cost </label>
+                <input asp-for="MenuItemCost" placeholder="Item Cost"/>
+                <span asp-validation-for="MenuItemCost"></span>
+            </div>
+
+            <div class="row mt-3">
+                <label asp-for="MenuItemAvailability">Item Availability</label>
+                <input asp-for="MenuItemAvailability" placeholder="Item Availability"/>
+                <span asp-validation-for="MenuItemAvailability"></span>
+            </div>
+
+            <div class="row mt-3">
+                <label asp-for="PhotoItem">Item Photo</label>
+                <input asp-for="PhotoItem" placeholder="Item Photo"/>
+                <span asp-validation-for="PhotoItem"></span>
+            </div>
+
+
+            <div class="row mt-5 justify-content-center">
+                <div class="col-sm-3">
+                    <button class="newbtn1 newbtn-default" type="submit">Create New Item</button>
+                </div>
+            </div>
+        </form>
+
+
+        
+
+</section>
