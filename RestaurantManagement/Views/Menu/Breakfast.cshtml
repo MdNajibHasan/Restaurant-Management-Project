@@ -1,3 +1,39 @@
-﻿<div>
-    <h5 class="text-black">This is breakfast section</h5>
-</div>
+﻿@model IEnumerable<ItemModel>
+
+@{
+    ViewBag.Title = "Dream Cafe";
+   
+}
+
+<section class="sec-padding loginForm" >
+
+        <div class="container">
+
+            <div>
+                <div class="row">
+                    <div class="section-title">
+                        <h2 data-title="Breakfast Items">Breakfast Items</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                if(item.MenuId.ToString() == "Breakfast")
+                {
+                    <div class="card m-3 col-sm">
+                        <div class="card-header">
+                            <h3 class="text-black">@item.MenuItemTitle</h3>
+                        </div>
+                    </div>
+                }
+            }
+
+        </div>
+
+
+</section>

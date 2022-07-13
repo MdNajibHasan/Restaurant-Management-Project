@@ -44,6 +44,7 @@ builder.Services.AddMvc(option => option.EnableEndpointRouting = false).AddXmlSe
 
 //builder.Services.AddSingleton<IEmployeeRepository, MockEmployeeRepository>();
 builder.Services.AddScoped<IUserRepository, SQLUserRepository>();
+builder.Services.AddScoped<IItemRepository, SQLItemRepository>();
 
 builder.Services.AddDbContextPool<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("UserDBConnection")));
 
