@@ -98,8 +98,9 @@ app.UseStaticFiles();
 
 app.UseAuthentication();
 /*app.UseMvcWithDefaultRoute();*/
-app.UseMvc(routes =>
+app.UseMvc(async routes =>
 {
+    
     routes.MapRoute("default", "{controller=Home}/{action=Index}");
 });
 

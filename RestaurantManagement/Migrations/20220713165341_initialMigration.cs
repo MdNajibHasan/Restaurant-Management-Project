@@ -28,6 +28,7 @@ namespace RestaurantManagement.Migrations
                 columns: table => new
                 {
                     Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -46,6 +47,25 @@ namespace RestaurantManagement.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "itemModels",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MenuId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MenuItemTitle = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MenuItemDescription = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MenuItemQuantity = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MenuItemCost = table.Column<double>(type: "float", nullable: false),
+                    MenuItemAvailability = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PhotoItem = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_itemModels", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -225,6 +245,9 @@ namespace RestaurantManagement.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetUserTokens");
+
+            migrationBuilder.DropTable(
+                name: "itemModels");
 
             migrationBuilder.DropTable(
                 name: "Users");

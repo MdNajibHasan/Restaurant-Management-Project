@@ -2,10 +2,11 @@
 
 namespace RestaurantManagement.ViewModels
 {
-    public class MenuItemViewModel
+    public class MenuItemModel
     {
-        [Required]
-        public string MenuItemId { get; set; }
+
+
+        
         [Required]
         public string MenuId { get; set; }
         [Required]

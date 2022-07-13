@@ -60,5 +60,11 @@
         @RenderBody()
     </div>
  <script src="~/JS1/main.js"></script>
+
+ @if (IsSectionDefined("Scripts"))
+    {
+        @RenderSection("Scripts",required:true)
+    }
+
 </body>
 </html>

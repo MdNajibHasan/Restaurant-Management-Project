@@ -1,4 +1,4 @@
-﻿@model MenuItemViewModel
+﻿@model MenuItemModel
 
 
 
@@ -19,16 +19,25 @@
         </div>
 
 
-        <form method="post">
-            <div class="row">
+        <form method="post" enctype="multipart/form-data">
+            @*<div class="row">
                 <label asp-for="MenuItemId">Item Id: </label>
                 <input asp-for="MenuItemId" placeholder="Item Id"/>
                 <span asp-validation-for="MenuItemId"></span>
-            </div>
+            </div>*@
 
             <div class="row mt-3">
-                <label asp-for="MenuId">Menu Id: </label>
-                <input asp-for="MenuId" placeholder="Menu Id"/>
+                <label asp-for="MenuId">Select Menu: </label>
+
+                <select asp-for="MenuId">
+                    <option value="Not selected">Not selected</option>
+                    <option value="Breakfast">Breakfast</option>
+                    <option value="Lunch">Lunch</option>
+                    <option value="Dinner">Dinner</option>
+                    <option value="Drinks">Drinks</option>
+                </select>
+
+                
                 <span asp-validation-for="MenuId"></span>
             </div>
 
@@ -63,8 +72,12 @@
             </div>
 
             <div class="row mt-3">
-                <label asp-for="PhotoItem">Item Photo</label>
-                <input asp-for="PhotoItem" placeholder="Item Photo"/>
+                <label asp-for="PhotoItem" class="custom-file-label">Item Photo</label>
+                <div class="custom-file">
+                    
+                    <input asp-for="PhotoItem" placeholder="Item Photo" class="custom-file-input">
+                    <label class="custom-file-label">Choose File...</label>
+                </div>
                 <span asp-validation-for="PhotoItem"></span>
             </div>
 
@@ -74,6 +87,20 @@
                     <button class="newbtn1 newbtn-default" type="submit">Create New Item</button>
                 </div>
             </div>
+
+            @section Scripts {
+                <script>
+$(document).ready(function() {
+    $('.custom-file-input').on("change", function() {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).next('.custom-file-label').html(fileName);
+    });
+});
+                </script>
+            }
+
+
+
         </form>
 
 
