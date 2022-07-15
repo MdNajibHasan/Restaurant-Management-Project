@@ -19,7 +19,7 @@ namespace RestaurantManagement.ViewModels
         public double MenuItemCost { get; set; }
         [Required]
         public string MenuItemAvailability { get; set; }
-        [Required]
+        
         public IFormFile PhotoItem { get; set; }
     }
 }

@@ -1,3 +1,81 @@
-﻿<div>
-    <h5 class="text-black">This is Drinks section</h5>
-</div>
+﻿@model IEnumerable<ItemModel>
+
+
+@{
+    ViewBag.Title = "Dream Cafe";
+    
+}
+
+<section class="sec-padding loginForm" >
+
+        <div class="container">
+
+            <div>
+                <div class="row">
+                    <div class="section-title">
+                        <h2 data-title="Drinks Items">Drinks Items</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        
+            <div class="card-deck">
+            
+               <table>
+                   <tbody>
+                                      
+
+
+                        @foreach (var item in Model)
+            {
+            var photopath = "~/Images/" + (item.PhotoItem ?? "noimage.jpg");
+
+                if(item.MenuId.ToString() == "Drinks")
+                {
+                    <tr>
+
+                        <td style="width:50%" class="justify-content-center">
+                            
+                    <div class="card m-3  col-sm" style="min-width:18rem; max-width:30.5%;">
+
+                        <img class="card-img-top imageThumbnail" src="@photopath" asp-append-version="true"/>
+
+                        <div class="card-footer text-center">
+                            <h3 class="text-black">@item.MenuItemTitle</h3>
+                            <h5 class="text-black">$@item.MenuItemCost</h5>
+                           
+
+                            <a asp-action="EditItem" asp-controller="Menu" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                            <a href="#" class="btn btn-danger">Delete</a>
+                        </div>
+                    </div>
+               
+                        </td>
+
+                        <td style="width:50%">
+                            <h5 class="menuDesign">Menu Type   :   @item.MenuId</h5>
+                            <h5 class="menuDesign">Description :   @item.MenuItemDescription</h5>
+                            <h5 class="menuDesign">Quantity    :   @item.MenuItemQuantity</h5>
+                            <h5 class="menuDesign">Availability:   @item.MenuItemAvailability</h5>
+                        </td>
+
+                     </tr>
+                         }
+            }
+                    
+                
+            </tbody>
+               </table>
+
+            
+
+        </div>
+
+
+        <div class="container2">
+            <a asp-controller="Home" asp-action="Admin" class="newbtn newbtn-default">Back to Home</a>
+        </div>
+
+</section>

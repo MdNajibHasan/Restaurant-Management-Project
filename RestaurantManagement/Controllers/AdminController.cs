@@ -7,12 +7,14 @@ namespace RestaurantManagement.Controllers
 {
     public class AdminController : Controller
     {
+
+
         private readonly AppDbContext _context;
         private readonly IHostingEnvironment hostingEnvironment;
-
-        public AdminController(AppDbContext context,
+        public AdminController( AppDbContext context,
                                 IHostingEnvironment hostingEnvironment)
         {
+           
             _context = context;
             this.hostingEnvironment = hostingEnvironment;
         }
@@ -33,7 +35,7 @@ namespace RestaurantManagement.Controllers
             if (ModelState.IsValid)
             {
                 string uniqueFileName = null;
-                if(model.PhotoItem != null)
+                if (model.PhotoItem != null)
                 {
                     string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "Images");
                     uniqueFileName = Guid.NewGuid().ToString() + "_" + model.PhotoItem.FileName;
@@ -48,7 +50,7 @@ namespace RestaurantManagement.Controllers
                     MenuItemAvailability = model.MenuItemAvailability,
                     MenuItemDescription = model.MenuItemDescription,
                     MenuItemCost = model.MenuItemCost,
-                   
+
                     MenuItemQuantity = model.MenuItemQuantity,
                     PhotoItem = uniqueFileName
                 };

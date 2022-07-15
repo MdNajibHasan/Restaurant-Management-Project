@@ -11,7 +11,9 @@ namespace RestaurantManagement.Models
 
         IEnumerable<ItemModel> GetAllItem();
 
-        /*ItemModel Update(ItemModel itemChanges);
-        ItemModel Delete(int id);*/
+        ItemModel Add(ItemModel item);
+
+        ItemModel UpdateItem(ItemModel itemChanges);
+        ItemModel Delete(int id);
     }
 }

@@ -1,7 +1,10 @@
-﻿@model MenuItemModel
+﻿@model EditItemViewModel
 
 
-
+@{
+    ViewBag.Title = "Dream Cafe";
+    var photopath = "~/Images/" + (Model.PhotoPath ?? "noimage.jpg");
+}
 
 
 
@@ -12,7 +15,7 @@
             <div>
                 <div class="row">
                     <div class="section-title">
-                        <h2 data-title="Add Menu Item">Add Menu Item</h2>
+                        <h2 data-title="Edit Item">Edit Item</h2>
                     </div>
                 </div>
             </div>
@@ -20,16 +23,13 @@
 
 
         <form method="post" enctype="multipart/form-data">
-            @*<div class="row">
-                <label asp-for="MenuItemId">Item Id: </label>
-                <input asp-for="MenuItemId" placeholder="Item Id"/>
-                <span asp-validation-for="MenuItemId"></span>
-            </div>*@
+            <input hidden asp-for="Id" />
+            <input hidden asp-for="PhotoPath" />
 
             <div class="row mt-3">
                 <label asp-for="MenuId">Select Menu: </label>
 
-                <select class="addMenuSelect" asp-for="MenuId">
+                <select asp-for="MenuId">
                     <option value="Not selected">Not selected</option>
                     <option value="Breakfast">Breakfast</option>
                     <option value="Lunch">Lunch</option>
@@ -76,23 +76,23 @@
                 <div class="custom-file">
                     
                     <input asp-for="PhotoItem" placeholder="Item Photo" class="custom-file-input">
-                    <label class="custom-file-label">Choose File...</label>
+                    <label class="custom-file-label">Click here to choose photo</label>
                 </div>
-                <span asp-validation-for="PhotoItem"></span>
+                
             </div>
 
 
-            
-                <div class="container2">
-                    <button class="newbtn1 newbtn-default me-5" type="submit">Create New Item</button>
-               
+            <div class="row mt-3 col-sm-4 offset-4 container2">
+                <img src="@photopath" class="imageThumbnail" asp-append-version="true"/>
+            </div>
 
-                
-                    <a asp-controller="Home" asp-action="Admin" class="newbtn newbtn-default">Back to Home</a>
-                </div>
-                
 
-            
+            <div class="mt-5 container2">
+                    
+                    <button class="newbtn1 newbtn-default me-5" type="submit">Update</button>
+                    <a class="newbtn1 newbtn-default" asp-action="@Model.MenuId" asp-controller="Menu">Cancel</a>
+                
+            </div>
 
             @section Scripts {
                 <script>
@@ -109,7 +109,7 @@ $(document).ready(function() {
 
         </form>
 
-        
+
         
 
 </section>

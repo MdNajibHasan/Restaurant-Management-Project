@@ -1,0 +1,91 @@
+﻿@model ItemModel
+
+
+
+
+@{
+    ViewBag.Title = "Dream Cafe";
+    var photopath = "~/Images/" + (Model.PhotoItem ?? "noimage.jpg");
+    var backPage = (Model.MenuId) + "User";
+}
+
+<section class="sec-padding loginForm" >
+
+        <div class="container">
+
+            <div>
+                <div class="row">
+                    <div class="section-title">
+                        <h2 data-title="Order Now">@Model.MenuItemTitle</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <table>
+            <tbody>
+                <tr >
+                    <td style="width:60%" >
+                        <div class="card  addToCartDesign col-sm-2" style="min-width:25rem; max-width:40.5%;">
+
+                        <img class="card-img-top imageThumbnail2" src="@photopath" asp-append-version="true"/>
+
+                        <div class="card-footer text-center pb-3">
+                            <h3 class="text-black">@Model.MenuItemTitle</h3>
+                            <h5 class="costDesign">$@Model.MenuItemCost</h5>
+                           
+
+                           
+                                <select class="cartItem2">
+                               
+                                <option class="optionItem" value="1">1</option>
+                                <option class="optionItem" value="2">2</option>
+                                <option class="optionItem" value="3">3</option>
+                                <option class="optionItem" value="4">4</option>
+                                <option class="optionItem" value="5">5</option>
+                                <option class="optionItem" value="6">6</option>
+                                <option class="optionItem" value="7">7</option>
+                                <option class="optionItem" value="8">8</option>
+                                <option class="optionItem" value="9">9</option>
+                                <option class="optionItem" value="10">10</option>
+                            </select>
+                            <button  onclick=" document.getElementById('img2').classList.add('dNone'); document.getElementById('img1').classList.remove('dNone');"
+                                    ondblclick="document.getElementById('img1').classList.add('dNone'); document.getElementById('img2').classList.remove('dNone');"
+                            class="button-cart2">
+                                <img id="img2"  class="imageButtonCart2" src="~/Images/cartIcon2.png">
+                                <img id="img1" class="imageButtonCart dNone" src="~/Images/cartIcon.png">
+                            </button>
+
+                            
+                            
+                            
+                        </div>
+                    </div>
+                    </td>
+
+
+                    <td style="width:40%" >
+                            <div class="addToCartDetails">
+                                <h5 class="menuDesign">Menu Type   :   @Model.MenuId</h5>
+                                <h5 class="menuDesign">Description :   @Model.MenuItemDescription</h5>
+                                <h5 class="menuDesign">Quantity    :   @Model.MenuItemQuantity</h5>
+                                <h5 class="menuDesign">Availability:   @Model.MenuItemAvailability</h5>
+                            </div>
+                     </td>
+
+                </tr>
+                
+                    
+                
+            </tbody>
+        </table>
+
+
+        <div class="container2">
+            
+            <a asp-controller="Menu" asp-action="@backPage" class="newbtn newbtn-default">Back</a>
+        </div>
+
+
+</section>

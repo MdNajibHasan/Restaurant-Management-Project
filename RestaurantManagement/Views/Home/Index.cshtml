@@ -33,7 +33,19 @@
                     <ul>
                         <li class="nav-item"><a  href="#home">home</a></li>
                         <li class="nav-item"><a  href="#about">about</a></li>
-                        <li class="nav-item"><a  href="#our-menu">our menu</a></li>
+                        <div class="nav-item dropdown">
+                            <a class="dropbtn">Menu
+                                <i class="fa fa-caret-down"></i>
+                            </a>
+                            
+                            <div class="dropdown-content">
+                                <a asp-controller="Menu" asp-action="BreakfastUser">Breakfast</a>
+                                <a asp-controller="Menu" asp-action="LunchUser">Lunch</a>
+                                <a asp-controller="Menu" asp-action="DinnerUser">Dinner</a>
+                                <a asp-controller="Menu" asp-action="DrinksUser">Drinks</a>
+                            </div>
+                        
+                        </div>
                         <li class="nav-item"><a  href="#testimonials">testimonials</a></li>
                         <li class="nav-item"><a  href="#team">team</a></li>
 
@@ -47,9 +59,9 @@
                                     </button>
                                 </form>
                             </li>
-                           @* <li class="nav-item">
-                                <a  asp-controller="UserAccount" asp-action="Profile" class="nav-link">Profile</a>
-                            </li>*@
+                            <li class="nav-item">
+                                <a   class="nav-link">@User.Identity.Name</a>
+                            </li>
                         } 
 
                         else
@@ -60,6 +72,10 @@
                     
 
                         <li class="nav-item"><a href="#contact">contact us</a></li>
+
+
+                        <li class="nav-item"><a asp-controller="Menu" asp-action="CartUser">cart</a></li>
+
 
                     </ul>
                 </nav>

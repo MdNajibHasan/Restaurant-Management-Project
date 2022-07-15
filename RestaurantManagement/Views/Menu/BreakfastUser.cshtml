@@ -13,14 +13,14 @@
             <div>
                 <div class="row">
                     <div class="section-title">
-                        <h2 data-title="Dinner Items">Dinner Items</h2>
+                        <h2 data-title="Order Now">Breakfast Items</h2>
                     </div>
                 </div>
             </div>
         </div>
+       
 
-
-          <div class="card-deck">
+         <div class="card-deck">
             
                <table>
                    <tbody>
@@ -31,7 +31,7 @@
             {
             var photopath = "~/Images/" + (item.PhotoItem ?? "noimage.jpg");
 
-                if(item.MenuId.ToString() == "Dinner")
+                if(item.MenuId.ToString() == "Breakfast")
                 {
                     <tr>
 
@@ -43,11 +43,14 @@
 
                         <div class="card-footer text-center">
                             <h3 class="text-black">@item.MenuItemTitle</h3>
-                            <h5 class="text-black">$@item.MenuItemCost</h5>
+                            <h5 class="costDesign">$@item.MenuItemCost</h5>
                            
 
-                            <a asp-action="EditItem" asp-controller="Menu" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
-                            <a href="#" class="btn btn-danger">Delete</a>
+                           
+
+                            <a asp-controller="Menu" asp-action="AddToCart" asp-route-id="@item.Id" class="newbtn2 newbtn-default2">View Details</a>
+                            
+                            
                         </div>
                     </div>
                
@@ -71,10 +74,11 @@
             
 
         </div>
-
+     
 
         <div class="container2">
-            <a asp-controller="Home" asp-action="Admin" class="newbtn newbtn-default">Back to Home</a>
+            <a asp-controller="Home" asp-action="Index" class="newbtn newbtn-default">Back to Home</a>
         </div>
+  
 
 </section>

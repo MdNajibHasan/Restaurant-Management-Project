@@ -202,6 +202,24 @@ p{
     border: none;
 }
 
+.newbtn2 {
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: transparent;
+    border-radius: 30px;
+    text-transform: capitalize;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: inherit;
+    color: var(--dark-light);
+    line-height: 1.5;
+    user-select: none;
+    border: none;
+}
+
 
 .newbtn-default{
     border:2px solid var(--main-color)
@@ -212,6 +230,17 @@ p{
     color: var(--white);
     background-color: var(--main-color);
 }
+
+
+.newbtn-default2 {
+    border: 2px solid var(--dark-light)
+}
+
+    .newbtn-default2:hover {
+        color: var(--main-color);
+        background-color: var(--dark);
+    }
+
 
 /* animation keyframes */
 @keyframes zoomInOut{
@@ -998,7 +1027,7 @@ input {
 }
 
 
-select {
+.addMenuSelect {
     display: block;
     height: 50px;
     width: 100%;
@@ -1008,8 +1037,6 @@ select {
     margin-top: 8px;
     font-size: 14px;
     font-weight: 300;
-    
-
 }
 
 
@@ -1023,3 +1050,107 @@ option:hover{
     background-color:var(--dark);
 }
 
+.menuDesign{
+    color:var(--white);
+    margin:18px;
+    font-size:20px;
+}
+
+.menuDesign:hover{
+    background-color:var(--dark);
+    color:var(--main-color);
+    font-weight:600;
+}
+
+
+.container2{
+    text-align: center;
+    margin-top:50px;
+}
+
+
+.imageThumbnail{
+    height:200px;
+    width:auto;
+}
+
+
+
+.cartItem{
+    margin-top:10px;
+    margin-left:20px;
+    float:left;
+    width:60px;
+    height:40px;
+    color:var(--main-color);
+    background:var(--dark-light);
+    display:flex;
+    border-radius:5px;
+}
+
+.imageButtonCart{
+    height:60px;
+    width:60px;
+    margin-left:50px;
+}
+
+.imageButtonCart2 {
+
+    height: 30px;
+    width: 30px;
+    margin-left: 50px;
+    margin-top: 12px;
+}
+
+
+.dNone{
+    display:none;
+}
+
+
+
+.costDesign{
+    color:var(--main-color);
+    font-size:20px;
+    font-weight:600;
+}
+
+
+
+.button-cart{
+    border:transparent;
+    background-color:transparent;
+}
+
+.addToCartDesign{
+    margin-left:230px;
+}
+
+.addToCartDetails{
+    margin-left:80px;
+}
+
+
+.imageThumbnail2 {
+    height: 300px;
+    width: auto;
+}
+
+.cartItem2 {
+    margin-top: 10px;
+    margin-left: 20px;
+    float: left;
+    width: 60px;
+    height: 40px;
+    color: var(--main-color);
+    background: var(--dark-light);
+    display: flex;
+    border-radius: 5px;
+    
+}
+
+.button-cart2 {
+    border: transparent;
+    background-color: transparent;
+    margin-left:90px;
+}
