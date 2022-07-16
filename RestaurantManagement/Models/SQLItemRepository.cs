@@ -11,7 +11,7 @@
         public ItemModel Delete(int id)
         {
             ItemModel item = context.itemModels.Find(id);
-            if(item == null)
+            if(item != null)
             {
                 context.itemModels.Remove(item);
                 context.SaveChanges();

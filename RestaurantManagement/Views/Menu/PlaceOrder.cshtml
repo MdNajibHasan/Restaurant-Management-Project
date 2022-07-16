@@ -1,12 +1,13 @@
-﻿@model ItemModel
-
-
+﻿
+@model ItemModel;
 
 
 @{
     ViewBag.Title = "Dream Cafe";
     var photopath = "~/Images/" + (Model.PhotoItem ?? "noimage.jpg");
     var backPage = (Model.MenuId) + "User";
+    string quantity ="";
+    string dd = Model.Id.ToString();
 }
 
 <section class="sec-padding loginForm" >
@@ -22,6 +23,7 @@
             </div>
         </div>
 
+        
 
         <table>
             <tbody>
@@ -35,9 +37,13 @@
                             <h3 class="text-black">@Model.MenuItemTitle</h3>
                             <h5 class="costDesign">$@Model.MenuItemCost</h5>
                            
-
+                          <form method="post">
+                                
+                                <input hidden asp-for="MenuItemTitle" />
+                                <input hidden asp-for="MenuId" />
+                                <input hidden asp-for="MenuItemCost" />
                            
-                                <select class="cartItem2">
+                                <select asp-for="MenuItemQuantity"  class="cartItem2">
                                
                                 <option class="optionItem" value="1">1</option>
                                 <option class="optionItem" value="2">2</option>
@@ -50,15 +56,18 @@
                                 <option class="optionItem" value="9">9</option>
                                 <option class="optionItem" value="10">10</option>
                             </select>
-                            <button  onclick=" document.getElementById('img2').classList.add('dNone'); document.getElementById('img1').classList.remove('dNone');"
+                            @*<button  onclick=" document.getElementById('img2').classList.add('dNone'); document.getElementById('img1').classList.remove('dNone');"
                                     ondblclick="document.getElementById('img1').classList.add('dNone'); document.getElementById('img2').classList.remove('dNone');"
                             class="button-cart2">
                                 <img id="img2"  class="imageButtonCart2" src="~/Images/cartIcon2.png">
                                 <img id="img1" class="imageButtonCart dNone" src="~/Images/cartIcon.png">
-                            </button>
+                            </button>*@
+
+
+                            <button type="submit" class="placeOrder newbtn2 newbtn-default2">Place Order</button>
 
                             
-                            
+                         </form>   
                             
                         </div>
                     </div>
@@ -81,6 +90,7 @@
             </tbody>
         </table>
 
+        
 
         <div class="container2">
             

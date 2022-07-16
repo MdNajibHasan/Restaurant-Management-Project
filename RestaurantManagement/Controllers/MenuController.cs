@@ -2,20 +2,26 @@
 using RestaurantManagement.Models;
 using RestaurantManagement.ViewModels;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
+using Microsoft.AspNetCore.Identity;
 
 namespace RestaurantManagement.Controllers
 {
     public class MenuController : Controller
     {
+        private readonly IOrderStatusRepository _orderStatusRepository;
         private readonly IItemRepository _itemRepository;
         private readonly AppDbContext _context;
         private readonly IHostingEnvironment hostingEnvironment;
+        private readonly UserManager<ApplicationUser> _userManager;
+        ItemModel itemPlaceOrder;
         public MenuController(IItemRepository itemRepository, AppDbContext context,
-                                IHostingEnvironment hostingEnvironment)
+                                IHostingEnvironment hostingEnvironment, IOrderStatusRepository orderStatusRepository, UserManager<ApplicationUser> userManager)
         {
+            _orderStatusRepository = orderStatusRepository;
             _itemRepository = itemRepository;
             _context = context;
             this.hostingEnvironment = hostingEnvironment;
+            _userManager = userManager;
         }
 
 
@@ -132,21 +138,21 @@ namespace RestaurantManagement.Controllers
         public IActionResult DeleteItem(int id)
         {
             ItemModel item =  _itemRepository.GetItem(id);
-
-            if(item == null)
+            string act = item.MenuId;
+            if (item == null)
             {
                 ViewBag.ErrorMessage = $"Item with id = {id} cannot be found";
                 return View("Not Found");
             }
             else
             {
-                string act = item.MenuId;
+                
                 _itemRepository.Delete(id);
                 return RedirectToAction(act, "Menu");
                 
             }
 
-            return View(item);
+            return RedirectToAction(act, "Menu");
         }
         
 
@@ -185,15 +191,66 @@ namespace RestaurantManagement.Controllers
 
 
         [HttpGet]
-        public ViewResult AddToCart(int id)
+        public ViewResult PlaceOrder(int id)
         {
-            ItemModel item = _itemRepository.GetItem(id);
-            return View(item);
+            itemPlaceOrder = _itemRepository.GetItem(id);
+            return View(itemPlaceOrder);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PlaceOrder(ItemModel model)
+        {
+           
+
+
+
+            /* Using this portion I can get the details of the current logged in user */
+            var userId = _userManager.GetUserId(HttpContext.User);
+            ApplicationUser user = _userManager.FindByIdAsync(userId).Result;
+
+
+            double totalCost = double.Parse(model.MenuItemQuantity.ToString()) * double.Parse(model.MenuItemCost.ToString());
+
+
+
+            if (model != null && user!=null)
+            {
+                DateTime currentTime = DateTime.Now;
+                string status = "Order Placed Successfully";
+
+                OrderStatusModel orderStatus = new OrderStatusModel()
+                {
+                    OrderStatus = status,
+                    CreatedDate = currentTime.ToString(),
+
+                    MenuType = model.MenuId,
+                    ItemTitle = model.MenuItemTitle,
+                    ItemQuantity = model.MenuItemQuantity,
+                    TotalCost = totalCost,
+
+                    UserName = user.UserName,
+                    UserId = user.Id,
+                    UserAddress = user.Address,
+                    UserPhone = user.PhoneNumber
+
+                };
+                _orderStatusRepository.Add(orderStatus);
+                return RedirectToAction("NewOrders", "Menu");
+
+            }
+
+            return View();
         }
 
 
         [HttpGet]
-        public ViewResult CartUser()
+        public ViewResult NewOrders()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ViewResult CompletedOrders()
         {
             return View();
         }
