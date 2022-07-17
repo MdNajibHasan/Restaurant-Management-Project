@@ -131,6 +131,25 @@ namespace RestaurantManagement.Controllers
         }
 
 
-        
+
+        [HttpGet]
+        public IActionResult UserProfile()
+        {
+            var userId = userManager.GetUserId(HttpContext.User);
+            ApplicationUser user = userManager.FindByIdAsync(userId).Result;
+
+            RegistrationViewModel model = new RegistrationViewModel()
+            {
+                Username = user.UserName,
+                Email = user.Email,
+                Address = user.Address,
+                Phone = user.PhoneNumber,
+
+            };
+            return View(model);
+        }
+
+
+
     }
 }

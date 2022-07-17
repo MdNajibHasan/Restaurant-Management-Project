@@ -969,8 +969,7 @@ input {
 
 
 .dropdown a{
-    float: left;
-    overflow: hidden;
+    
 }
 
     /* Dropdown button */
@@ -1001,7 +1000,7 @@ input {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    margin-top:50px;
+    margin-top:0px;
 }
 
     /* Links inside the dropdown */
@@ -1160,3 +1159,103 @@ option:hover{
     margin-left:90px;
     margin-top:7px;
 }
+
+.menuDesign2{
+    color:var(--main-color);
+
+}
+
+.menuDesign2:hover{
+    background-color:var(--dark-light);
+}
+
+
+.menuDesign3 {
+    color: var(--main-color);
+    font-size:20px;
+}
+
+.forHover {
+    border: solid var(--dark);
+    border-radius: 10px;
+    padding-left: 40px;
+    padding-top: 40px;
+    
+}
+
+.forHover:hover{
+    border:solid  var(--main-color);
+    border-radius:10px;
+    
+
+}
+
+.imgOrder{
+    text-align:right;
+    margin-right:30px;
+}
+
+.imageThumbnail3 {
+    height: 200px;
+    width: auto;
+    border-radius:10px;
+}
+
+.centeralignment{
+    text-align:center;
+}
+
+
+.card-body-order {
+    background-color: var(--dark);
+    color: var(--white-light);
+    border-radius: 5px;
+    
+    padding: 30px;
+}
+.card-body-order:hover{
+    
+    color:var(--white);
+}
+
+.designCard{
+    border:solid var(--main-color);
+    border-radius:5px;
+    
+}
+
+.designCard:hover{
+    border:solid var(--white-light);
+}
+
+.cfooter{
+    margin-left:1px;
+    margin-right:1px;
+    margin-bottom:1px;
+    background-color:var(--white-light);
+    border-bottom-left-radius:3px;
+    border-bottom-right-radius:3px;
+    border-top-right-radius:5px;
+    border-top-left-radius:5px;
+
+    padding:10px;
+}
+
+
+.noOrders{
+    color:var(--white-light);
+    text-align:center;
+    margin-top:10px;
+    margin-bottom:10px;
+    font-size:22px;
+    font-weight:300;
+}
+
+
+.imageThumbnail4 {
+    height: 310px;
+    width: auto;
+    border-radius: 10px;
+}
+
+

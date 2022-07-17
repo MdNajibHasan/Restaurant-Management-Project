@@ -7,6 +7,7 @@
 @{
     ViewBag.Title = "Dream Cafe";
     
+
 }
 
 
@@ -27,7 +28,7 @@
 
         @foreach(var order in Model)
     {
-        if(order.UserName == User.Identity.Name && order.OrderStatus != "Completed")
+        if(order.UserName == ViewBag.userName && order.OrderStatus == "Completed")
         {
             var photopath = "~/Images/" + (order.PhotoPath ?? "noimage.jpg");
             <div class="forHover">
@@ -71,20 +72,13 @@
                                 <div  class="menuDesign3 col-9"> @order.OrderStatus</div>
                               </div>
 
-                    
-                                @if(order.OrderStatus == "Delivered")
-                                {
-                                     <div class="row">
-                                            <form method="post" asp-action="UpdateStatus" asp-route-id="@order.OrderNumber">
-                                                <button type="submit" class="btn btn-primary container2">Recieved</button>
-                                            </form>
-                                      </div>
-                                }
+                              
+                
 
 
-
-
-                        </div>
+                
+                </div>
+                                
                         
 
 
@@ -109,7 +103,7 @@
 
 
      <div class="container2">
-            <a asp-controller="Home" asp-action="Index" class="newbtn newbtn-default">Back to Home</a>
+            <a asp-controller="Menu" asp-action="UserListCompletedOrder" class="newbtn newbtn-default">Back to OrderList</a>
         </div>
         
 

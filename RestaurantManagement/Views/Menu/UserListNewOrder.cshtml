@@ -1,0 +1,112 @@
+﻿@model IEnumerable<OrderStatusModel>
+
+
+
+
+
+@{
+    ViewBag.Title = "Dream Cafe";
+    List<string> users = new List<string>();
+    int count = 0;
+    //KeyValuePair<string, bool> users;
+}
+
+
+<section class="sec-padding loginForm" >
+
+        <div class="container">
+
+            <div>
+                <div class="row">
+                    <div class="section-title">
+                        <h2 data-title="New Orders">New Orders</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <tbody>
+
+           
+
+
+        @foreach(var UserOrder in Model)
+    {
+        bool isTrue = false;
+                
+
+        for (int i=0; i<users.Count; i++)
+        {
+            if(UserOrder.UserName == users[i])
+            {
+                isTrue = true;
+                break;
+
+            }
+            
+        }
+
+        if(isTrue == false && UserOrder.OrderStatus != "Completed")
+        {
+            
+            users.Add(UserOrder.UserName);
+
+            <tr>
+                <td style="width:70%" class="justify-content-center">
+
+
+
+
+
+                    <div class="designCard m-3  col-sm " style="min-width:30rem; max-width:60.5%;">
+                        <div class="card-body-order">
+                            <div class="row">
+                                   User Name : @UserOrder.UserName
+                            </div>
+                            <div class="row">
+                                Address : @UserOrder.UserAddress
+                            </div>
+                            <div class="row">
+                                Phone Number : @UserOrder.UserPhone
+                            </div>
+                        </div>
+
+                
+                        <div class="cfooter text-center">
+                            <a asp-controller="Menu" asp-action="NewOrdersAdmin" asp-route-userName="@UserOrder.UserName" class="newbtn2 newbtn-default2">Orders</a>
+                        </div>
+                    </div>
+
+
+
+
+
+                </td>
+                    </tr>
+
+                    count = count + 1;
+                }
+                
+               
+
+
+    }
+
+    @if(@count == 0)
+            {
+                <div class="noOrders">
+                    No new orders yet.
+                </div>
+            }
+
+     </tbody>
+        </table>
+
+    <div class="container2">
+            <a asp-controller="Home" asp-action="Admin" class="newbtn newbtn-default">Back to Home</a>
+       </div>
+
+
+
+</section>

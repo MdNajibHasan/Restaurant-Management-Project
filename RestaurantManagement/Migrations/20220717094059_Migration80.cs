@@ -23,7 +23,8 @@ namespace RestaurantManagement.Migrations
                     MenuType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ItemQuantity = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     TotalCost = table.Column<double>(type: "float", nullable: false),
-                    OrderStatus = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    OrderStatus = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PhotoPath = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

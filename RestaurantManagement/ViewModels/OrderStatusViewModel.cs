@@ -17,5 +17,7 @@ namespace RestaurantManagement.ViewModels
         public double TotalCost { get; set; }
 
         public string OrderStatus { get; set; }
+
+        public string PhotoPath { get; set; }
     }
 }

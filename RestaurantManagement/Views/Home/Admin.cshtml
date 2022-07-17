@@ -52,6 +52,20 @@
                         <li class="nav-item"><a  asp-controller="Administration" asp-action="ListRoles" >List Roles</a></li>
                         <li class="nav-item"><a  href="#team">team</a></li>
 
+
+                        <div class="nav-item dropdown">
+                            <a class="dropbtn">Order Status
+                                <i class="fa fa-caret-down"></i>
+                            </a>
+                            
+                            <div class="dropdown-content">
+                                <a asp-controller="Menu" asp-action="UserListNewOrder">NewOrders</a>
+                                <a asp-controller="Menu" asp-action="UserListCompletedOrder">Completed Orders</a>
+                                
+                            </div>
+                        
+                        </div>
+
                         @if(signInManager.IsSignedIn(User))
                         {
                             <li class="nav-item">

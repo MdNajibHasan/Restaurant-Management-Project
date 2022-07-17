@@ -1,0 +1,77 @@
+﻿@model RegistrationViewModel
+
+
+
+
+  @{
+        ViewBag.Title = "Dream Cafe";
+   }
+
+<!--Sign up-->
+
+
+ <section class="sec-padding loginForm">
+
+        <div class="container">
+            <div id="register">
+                <div class="row">
+                    <div class="section-title">
+                        <h2 data-title="User Profile">@Model.Username</h2>
+                    </div>
+                </div>
+
+
+
+                <form  method="post">
+
+                    <div class="form-group">
+                        <label asp-for="Username">Username</label>
+                        <input asp-for="Username" type="text" placeholder="Username" />
+                        <span asp-validation-for="Username" class="text-danger fw-bold"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Email">Email</label>
+                        <input asp-for="Email" type="email" placeholder="Email">
+                        <span asp-validation-for="Email" class="text-danger fw-bold"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Address">Address</label>
+                        <input asp-for="Address" type="text" placeholder="Address">
+                        <span asp-validation-for="Address" class="text-danger fw-bold"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Phone">Phone</label>
+                        <input asp-for="Phone" type="text" placeholder="Phone">
+                        <span asp-validation-for="Phone" class="text-danger fw-bold"></span>
+                    </div>
+
+                    
+
+                    @*<div asp-validation-summary="All"></div>*@
+
+                    <div class="form-group">
+                        <button type="submit" class="newbtn newbtn-default mt-3">Update</button>
+                    </div>
+
+                </form>
+                
+
+
+
+                <div class="container2">
+                     <a asp-controller="Home" asp-action="Index" class="newbtn-default newbtn">Back to Home</a>
+                </div>
+
+
+            </div>
+
+
+
+        </div>
+
+        
+
+</section>

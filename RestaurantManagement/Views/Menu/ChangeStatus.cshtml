@@ -1,0 +1,155 @@
+﻿@model OrderStatusModel
+
+
+
+
+
+@{
+    ViewBag.Title = "Dream Cafe";
+     var photopath = "~/Images/" + (Model.PhotoPath ?? "noimage.jpg");
+
+}
+
+
+<section class="sec-padding loginForm" >
+
+        <div class="container">
+
+            <div>
+                <div class="row">
+                    <div class="section-title">
+                        <h2 data-title="New Orders">New Orders</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+           
+            <div class="forHover">
+                
+                    <div class="row">
+                        <div class="col-sm">
+
+
+
+
+                            <div class="row">
+                                <div  class="col-3">Order Id:</div>
+                                <div  class="menuDesign3 col-9"> @Model.OrderNumber</div>
+             
+                            </div>
+                            <div class="row">
+                                <div  class="col-3">Date and Time:</div>
+                                 <div  class="menuDesign3 col-9"> @Model.CreatedDate</div>
+               
+                            </div>
+                            <div class="row">
+                                <div  class="col-3">Food Title:</div>
+                                <div  class="menuDesign3 col-9"> @Model.ItemTitle</div>
+                
+                             </div>
+                            <div class="row">
+                                 <div  class="col-3">Quantity:</div>
+                                 <div  class="menuDesign3 col-9"> @Model.ItemQuantity</div>
+                
+                             </div>
+                             <div class="row">
+                                <div  class="col-3">Total Cost:</div>
+                                 <div  class="menuDesign3 col-9">$ @Model.TotalCost</div>
+                
+                             </div>
+           
+                
+
+                              <div class="row mb-xl-5">
+                                <div  class="col-3">Status:</div>
+                                <div  class="menuDesign3 col-9"> @Model.OrderStatus</div>
+                              </div>
+
+                              
+                
+
+                                    <form method="post">
+
+                                       <input hidden asp-for="OrderNumber" />
+                                       <input hidden asp-for="UserId" />
+                                       <input hidden asp-for="UserName" />
+                                       <input hidden asp-for="UserAddress" />
+                                       <input hidden asp-for="UserPhone" />
+                                       <input hidden asp-for="CreatedDate" />
+                                       <input hidden asp-for="ItemTitle" />
+                                       <input hidden asp-for="ItemQuantity" />
+                                       <input hidden asp-for="MenuType" />
+                                       <input hidden asp-for="TotalCost" />
+                                       <input hidden asp-for="PhotoPath" />
+
+
+
+
+
+
+                                        <div class="row mb-xl-5">
+                                            <div  class="col-3">Current Status:</div>
+                                            <div class="row mt-3">
+
+                                                <select asp-for="OrderStatus" class="addMenuSelect" >
+                                                   
+                                                    <option value="Order Placed Successfully">Order Placed Successfully</option>
+                                                    <option value="Cooking">Cooking</option>
+                                                    <option value="Delivered">Delivered</option>
+                                                    
+                                                    
+                                                </select>
+
+                                            </div>
+                                        </div>
+                               
+
+
+
+                                        <div class="mb-xl-5 container2">
+                                            <button type="submit" class="newbtn1 newbtn-default">
+                                                Update
+                                            </button>
+                                        </div>
+                        
+
+
+                                    </form>
+
+
+                                    
+
+                
+                </div>
+                                
+                        
+
+
+                        <div class="col-sm imgOrder">
+                            <img class="imageThumbnail4" src="@photopath" asp-append-version="true"/>
+                        </div>
+
+                    </div>
+                   
+
+
+               
+
+                
+                
+
+            </div>
+
+
+
+
+     <div class="container2">
+            <a asp-controller="Menu" asp-action="NewOrdersAdmin" asp-route-userName="@Model.UserName" class="newbtn newbtn-default">Back to Orders</a>
+        </div>
+        
+
+
+</section>

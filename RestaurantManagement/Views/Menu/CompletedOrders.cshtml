@@ -1,5 +1,110 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<OrderStatusModel>
+
+
+
+
+
 @{
+    ViewBag.Title = "Dream Cafe";
+    
 }
+
+
+<section class="sec-padding loginForm" >
+
+        <div class="container">
+
+            <div>
+                <div class="row">
+                    <div class="section-title">
+                        <h2 data-title="Completed Orders">Completed Orders</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        @foreach(var order in Model)
+    {
+        if(order.UserName == User.Identity.Name  && order.OrderStatus == "Completed")
+        {
+            var photopath = "~/Images/" + (order.PhotoPath ?? "noimage.jpg");
+            <div class="forHover">
+                
+                    <div class="row">
+                        <div class="col-sm">
+
+
+
+
+                            <div class="row">
+                                <div  class="col-3">Order Id:</div>
+                                <div  class="menuDesign3 col-9"> @order.OrderNumber</div>
+             
+                            </div>
+                            <div class="row">
+                                <div  class="col-3">Date and Time:</div>
+                                 <div  class="menuDesign3 col-9"> @order.CreatedDate</div>
+               
+                            </div>
+                            <div class="row">
+                                <div  class="col-3">Food Title:</div>
+                                <div  class="menuDesign3 col-9"> @order.ItemTitle</div>
+                
+                             </div>
+                            <div class="row">
+                                 <div  class="col-3">Quantity:</div>
+                                 <div  class="menuDesign3 col-9"> @order.ItemQuantity</div>
+                
+                             </div>
+                             <div class="row">
+                                <div  class="col-3">Total Cost:</div>
+                                 <div  class="menuDesign3 col-9">$ @order.TotalCost</div>
+                
+                             </div>
+           
+                
+
+                              <div class="row mb-xl-5">
+                                <div  class="col-3">Status:</div>
+                                <div  class="menuDesign3 col-9"> @order.OrderStatus</div>
+                              </div>
+
+                    
+                               
+
+
+
+
+                        </div>
+                        
+
+
+                        <div class="col-sm imgOrder">
+                            <img class="imageThumbnail3" src="@photopath" asp-append-version="true"/>
+                        </div>
+
+                    </div>
+                   
+
+
+               
+
+                
+                
+
+            </div>
+
+        
+        }
+    }
+
+
+     <div class="container2">
+            <a asp-controller="Home" asp-action="Index" class="newbtn newbtn-default">Back to Home</a>
+        </div>
+        
+
+
+</section>

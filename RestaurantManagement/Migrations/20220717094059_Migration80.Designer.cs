@@ -12,7 +12,7 @@ using RestaurantManagement.Models;
 namespace RestaurantManagement.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20220716142417_Migration80")]
+    [Migration("20220717094059_Migration80")]
     partial class Migration80
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -291,6 +291,10 @@ namespace RestaurantManagement.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("OrderStatus")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhotoPath")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

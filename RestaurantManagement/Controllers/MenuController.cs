@@ -226,6 +226,7 @@ namespace RestaurantManagement.Controllers
                     MenuType = model.MenuId,
                     ItemTitle = model.MenuItemTitle,
                     ItemQuantity = model.MenuItemQuantity,
+                    PhotoPath = model.PhotoItem,
                     TotalCost = totalCost,
 
                     UserName = user.UserName,
@@ -246,14 +247,81 @@ namespace RestaurantManagement.Controllers
         [HttpGet]
         public ViewResult NewOrders()
         {
-            return View();
+            var model = _orderStatusRepository.GetAllOrderStatus();
+            return View(model);
         }
 
         [HttpGet]
         public ViewResult CompletedOrders()
         {
-            return View();
+            var model = _orderStatusRepository.GetAllOrderStatus();
+            return View(model);
         }
+
+        [HttpGet]
+        public ViewResult UserListNewOrder()
+        {
+            var model = _orderStatusRepository.GetAllOrderStatus();
+            return View(model);
+        }
+
+
+        [HttpGet]
+        public ViewResult UserListCompletedOrder()
+        {
+            var model = _orderStatusRepository.GetAllOrderStatus();
+            return View(model);
+        }
+
+
+
+        [HttpGet]
+        public IActionResult NewOrdersAdmin(string userName)
+        {
+            var model = _orderStatusRepository.GetAllOrderStatus();
+            ViewBag.userName = userName;
+
+            
+            return View(model);
+        }
+
+
+
+        
+
+
+
+        [HttpGet]
+        public IActionResult CompletedOrdersAdmin(string userName)
+        {
+            var model = _orderStatusRepository.GetAllOrderStatus();
+            ViewBag.userName = userName;
+
+
+            return View(model);
+        }
+
+        [HttpGet]
+        public ViewResult ChangeStatus(int id)
+        {
+            var model = _orderStatusRepository.GetOrderStatus(id);
+
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> ChangeStatus(OrderStatusModel model)
+        {
+            if(model != null)
+            {
+                _orderStatusRepository.UpdateOrderStatus(model);
+                return RedirectToAction("UserListNewOrder", "Menu");
+            }
+
+            return View(model);
+        }
+
 
 
     }

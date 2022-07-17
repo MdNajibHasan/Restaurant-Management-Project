@@ -19,5 +19,6 @@ namespace RestaurantManagement.Models
         public string ItemQuantity { get; set; }
         public double TotalCost { get; set; }
         public string OrderStatus { get; set; }
+        public string PhotoPath { get; set; }
     }
 }

@@ -24,12 +24,12 @@
 
         public IEnumerable<OrderStatusModel> GetAllOrderStatus()
         {
-            throw new NotImplementedException();
+            return context.orderStatusModels;
         }
 
         public OrderStatusModel GetOrderStatus(int id)
         {
-            throw new NotImplementedException();
+            return context.orderStatusModels.Find(id);
         }
 
         public OrderStatusModel UpdateOrderStatus(OrderStatusModel orderStatusChanges)
