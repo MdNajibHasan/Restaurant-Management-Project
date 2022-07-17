@@ -133,6 +133,7 @@ namespace RestaurantManagement.Controllers
 
 
         [HttpGet]
+        [Authorize]
         public IActionResult UserProfile()
         {
             var userId = userManager.GetUserId(HttpContext.User);
@@ -147,6 +148,39 @@ namespace RestaurantManagement.Controllers
 
             };
             return View(model);
+        }
+
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> UserProfile(RegistrationViewModel model)
+        {
+            var userId = userManager.GetUserId(HttpContext.User);
+            ApplicationUser user = userManager.FindByIdAsync(userId).Result;
+
+            if(model != null && user != null)
+            {
+                user.UserName = model.Username;
+                user.Address = model.Address;
+                user.PhoneNumber = model.Phone;
+                user.Email = model.Email;
+
+
+                await userManager.UpdateAsync(user);
+
+                if(user.UserName.ToLower().Contains("najib100"))
+                {
+                    return RedirectToAction("Admin", "home");
+                }
+                else
+                {
+                    return RedirectToAction("index", "home");
+                }
+            }
+
+            return View(model);
+
+
         }
 
 

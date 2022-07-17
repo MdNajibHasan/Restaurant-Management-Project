@@ -1156,8 +1156,9 @@ option:hover{
 
 
 .placeOrder{
-    margin-left:90px;
-    margin-top:7px;
+    margin-top:3px;
+
+    
 }
 
 .menuDesign2{
@@ -1259,3 +1260,69 @@ option:hover{
 }
 
 
+.thumbnailIndexMenu{
+    height:70px;
+    width:70px;
+}
+
+
+.qtybtn{
+    float:left;
+    overflow:hidden;
+}
+
+
+
+.qty-plus {
+    float: left;
+    overflow: hidden;
+    line-height: 40px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    padding-top: 13px;
+    cursor: pointer;
+    color: #242424;
+    font-size: 20px;
+}
+
+.forColor:hover{
+    color:var(--main-color);
+}
+
+
+.qty-minus {
+        float: left;
+        overflow: hidden;
+        top: 0;
+        right: 40px;
+        line-height: 40px;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        cursor: pointer;
+        color: #242424;
+        font-size: 20px;
+        padding-top: 13px;
+    }
+
+.quantity{
+    background-color:var(--dark);
+    border-radius:5px;
+    width:130px;
+
+    
+}
+
+.qtQuantity{
+    width:50px;
+    float:left;
+    overflow:hidden;
+    padding-left:15px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

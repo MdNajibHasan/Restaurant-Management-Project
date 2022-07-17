@@ -1,5 +1,5 @@
 ﻿@inject SignInManager<ApplicationUser> signInManager
-
+@model IEnumerable<ItemModel>
 
 
     @{
@@ -175,161 +175,104 @@
 
             <div class="row">
                 <div class="menu-tabs">
-                    <button type="button" class="menu-tab-item active" data-target="#lunch">lunch</button>
+                    <button type="button" class="menu-tab-item active" data-target="#Breakfast">Breakfast</button>
+                    <button type="button" class="menu-tab-item " data-target="#lunch">lunch</button>
                     <button type="button" class="menu-tab-item" data-target="#dinner">dinner</button>
                     <button type="button" class="menu-tab-item" data-target="#drinks">drinks</button>
-                    <button type="button" class="menu-tab-item" data-target="#desserts">desserts</button>
+                    
                 </div>
             </div>
 
-            <div class="row menu-tab-content active" id="lunch">
+
+            <div class="row menu-tab-content  active" id="Breakfast">
+
+
+
+                @foreach(var item in Model)
+            {
+                var photopath = "~/Images/" + (item.PhotoItem ?? "noimage.jpg");
+                if(item.MenuId == "Breakfast")
+                {
+                    <div class="col-6">
+                         <div class="menuItem">
+                            <div class="menu-item-title">
+                                <img src="@photopath" class="thumbnailIndexMenu"  asp-append-version="true"/>
+                                <h3>@item.MenuItemTitle</h3>
+                            </div>
+                             <div class="menu-item-price">
+                                 $@item.MenuItemCost
+                             </div>
+                        </div>
+                    </div>
+                }
+            }
+
+
+                    
+        </div>
+
+            <div class="row menu-tab-content" id="lunch">
                 
-                <div class="col-6">
-                    <div class="menuItem">
-                    <div class="menu-item-title">
-                        <img src="Images/Images 2nd/menu/1.jpg" alt="menu item thumbnail">
-                        <h3>lunch item</h3>
-                    </div>
-                    <div class="menu-item-price">
-                        $40.00
-                    </div>
-                </div>
 
-
-                <div class="menuItem">
-                    <div class="menu-item-title">
-                        <img src="Images/Images 2nd/menu/2.jpg" alt="menu item thumbnail">
-                        <h3>lunch item</h3>
+                @foreach(var item in Model)
+            {
+                var photopath = "~/Images/" + (item.PhotoItem ?? "noimage.jpg");
+                if(item.MenuId == "Lunch")
+                {
+                    <div class="col-6">
+                         <div class="menuItem">
+                            <div class="menu-item-title">
+                                <img src="@photopath" class="thumbnailIndexMenu"  asp-append-version="true"/>
+                                <h3>@item.MenuItemTitle</h3>
+                            </div>
+                             <div class="menu-item-price">
+                                 $@item.MenuItemCost
+                             </div>
+                        </div>
                     </div>
-                    <div class="menu-item-price">
-                        $40.00
-                    </div>
-                </div>
-
-
-
-                <div class="menuItem">
-                    <div class="menu-item-title">
-                        <img src="Images/Images 2nd/menu/3.jpg" alt="menu item thumbnail">
-                        <h3>lunch item</h3>
-                    </div>
-                    <div class="menu-item-price">
-                        $40.00
-                    </div>
-                </div>
-
-
-                <div class="menuItem">
-                    <div class="menu-item-title">
-                        <img src="Images/Images 2nd/menu/4.jpg" alt="menu item thumbnail">
-                        <h3>lunch item</h3>
-                    </div>
-                    <div class="menu-item-price">
-                        $40.00
-                    </div>
-                </div>
-
-                </div>
-
-
-                <div class="col-6">
-                    <div class="menuItem">
-                    <div class="menu-item-title">
-                        <img src="Images/Images 2nd/menu/5.jpg" alt="menu item thumbnail">
-                        <h3>lunch item</h3>
-                    </div>
-                    <div class="menu-item-price">
-                        $40.00
-                    </div>
-                </div>
-
-                <div class="menuItem">
-                    <div class="menu-item-title">
-                        <img src="Images/Images 2nd/menu/6.jpg" alt="menu item thumbnail">
-                        <h3>lunch item</h3>
-                    </div>
-                    <div class="menu-item-price">
-                        $40.00
-                    </div>
-                </div>
+                }
+            }
 
 
 
-                <div class="menuItem">
-                    <div class="menu-item-title">
-                        <img src="Images/Images 2nd/menu/7.jpg" alt="menu item thumbnail">
-                        <h3>lunch item</h3>
-                    </div>
-                    <div class="menu-item-price">
-                        $40.00
-                    </div>
-                </div>
 
 
-                <div class="menuItem">
-                    <div class="menu-item-title">
-                        <img src="Images/Images 2nd/menu/8.jpg" alt="menu item thumbnail">
-                        <h3>lunch item</h3>
-                    </div>
-                    <div class="menu-item-price">
-                        $40.00
-                    </div>
-                </div>
-                </div>
+
+
+
+
+                
 
                 
 
             </div>
+
+
+
             <div class="row menu-tab-content" id="dinner">
 
-                <div class="col-6">
-                    <div class="menuItem">
-                    <div class="menu-item-title">
-                        <img src="Images/Images 2nd/menu/1.jpg" alt="menu item thumbnail">
-                        <h3>dinner item</h3>
+                @foreach(var item in Model)
+            {
+                var photopath = "~/Images/" + (item.PhotoItem ?? "noimage.jpg");
+                if(item.MenuId == "Dinner")
+                {
+                    <div class="col-6">
+                         <div class="menuItem">
+                            <div class="menu-item-title">
+                                <img src="@photopath" class="thumbnailIndexMenu"  asp-append-version="true"/>
+                                <h3>@item.MenuItemTitle</h3>
+                            </div>
+                             <div class="menu-item-price">
+                                 $@item.MenuItemCost
+                             </div>
+                        </div>
                     </div>
-                    <div class="menu-item-price">
-                        $30.00
-                    </div>
-                </div>
+                }
+            }
 
 
 
-                <div class="menuItem">
-                    <div class="menu-item-title">
-                        <img src="Images/Images 2nd/menu/2.jpg" alt="menu item thumbnail">
-                        <h3>dinner item</h3>
-                    </div>
-                    <div class="menu-item-price">
-                        $30.00
-                    </div>
-                </div>
-                </div>
-
-
-                <div class="col-6">
-                    <div class="menuItem">
-                    <div class="menu-item-title">
-                        <img src="Images/Images 2nd/menu/3.jpg" alt="menu item thumbnail">
-                        <h3>dinner item</h3>
-                    </div>
-                    <div class="menu-item-price">
-                        $30.00
-                    </div>
-                </div>
-
-
-
-                <div class="menuItem">
-                    <div class="menu-item-title">
-                        <img src="Images/Images 2nd/menu/4.jpg" alt="menu item thumbnail">
-                        <h3>dinner item</h3>
-                    </div>
-                    <div class="menu-item-price">
-                        $30.00
-                    </div>
-                </div>
-                </div>
+               
 
 
 
@@ -338,110 +281,33 @@
 
             <div class="row menu-tab-content" id="drinks">
 
-                <div class="col-6">
-                    <div class="menuItem">
-                    <div class="menu-item-title">
-                        <img src="Images/Images 2nd/menu/1.jpg" alt="menu item thumbnail">
-                        <h3>drink item</h3>
-                    </div>
-                    <div class="menu-item-price">
-                        $20.00
-                    </div>
-                </div>
-
-
-
-                <div class="menuItem">
-                    <div class="menu-item-title">
-                        <img src="Images/Images 2nd/menu/2.jpg" alt="menu item thumbnail">
-                        <h3>drink item</h3>
-                    </div>
-                    <div class="menu-item-price">
-                        $20.00
-                    </div>
-                </div>
-                </div>
-
-
-                <div class="col-6">
-                    <div class="menuItem">
-                        <div class="menu-item-title">
-                            <img src="Images/Images 2nd/menu/3.jpg" alt="menu item thumbnail">
-                            <h3>drink item</h3>
-                        </div>
-                        <div class="menu-item-price">
-                            $20.00
+                @foreach(var item in Model)
+            {
+                var photopath = "~/Images/" + (item.PhotoItem ?? "noimage.jpg");
+                if(item.MenuId == "Drinks")
+                {
+                    <div class="col-6">
+                         <div class="menuItem">
+                            <div class="menu-item-title">
+                                <img src="@photopath" class="thumbnailIndexMenu"  asp-append-version="true"/>
+                                <h3>@item.MenuItemTitle</h3>
+                            </div>
+                             <div class="menu-item-price">
+                                 $@item.MenuItemCost
+                             </div>
                         </div>
                     </div>
+                }
+            }
 
-                    <div class="menuItem">
-                        <div class="menu-item-title">
-                            <img src="Images/Images 2nd/menu/4.jpg" alt="menu item thumbnail">
-                            <h3>drink item</h3>
-                        </div>
-                        <div class="menu-item-price">
-                            $20.00
-                        </div>
-                    </div>
+
+
                 
-                 </div>
 
             </div>
 
 
-            <div class="row menu-tab-content" id="desserts">
-
-
-
-                <div class="col-6">
-                    <div class="menuItem">
-                        <div class="menu-item-title">
-                            <img src="Images/Images 2nd/menu/1.jpg" alt="menu item thumbnail">
-                            <h3>dessert item</h3>
-                        </div>
-                        <div class="menu-item-price">
-                            $10.00
-                        </div>
-                    </div>
-
-
-                    <div class="menuItem">
-                        <div class="menu-item-title">
-                            <img src="Images/Images 2nd/menu/2.jpg" alt="menu item thumbnail">
-                            <h3>dessert item</h3>
-                        </div>
-                        <div class="menu-item-price">
-                            $10.00
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-6">
-                    <div class="menuItem">
-                        <div class="menu-item-title">
-                            <img src="Images/Images 2nd/menu/3.jpg" alt="menu item thumbnail">
-                            <h3>dessert item</h3>
-                        </div>
-                        <div class="menu-item-price">
-                            $10.00
-                        </div>
-                    </div>
-
-
-                    <div class="menuItem">
-                        <div class="menu-item-title">
-                            <img src="Images/Images 2nd/menu/4.jpg" alt="menu item thumbnail">
-                            <h3>dessert item</h3>
-                        </div>
-                        <div class="menu-item-price">
-                            $10.00
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
+            
     </section>
 
     <!-- menu section end -->

@@ -66,7 +66,7 @@
            
                 
 
-                              <div class="row mb-xl-5">
+                              <div class="row mb-2">
                                 <div  class="col-3">Status:</div>
                                 <div  class="menuDesign3 col-9"> @order.OrderStatus</div>
                               </div>
@@ -74,9 +74,9 @@
                     
                                 @if(order.OrderStatus == "Delivered")
                                 {
-                                     <div class="row">
-                                            <form method="post" asp-action="UpdateStatus" asp-route-id="@order.OrderNumber">
-                                                <button type="submit" class="btn btn-primary container2">Recieved</button>
+                                     <div class="row mb-3">
+                                            <form method="post" asp-action="UpdateStatusCompleted" asp-route-id="@order.OrderNumber">
+                                                <button type="submit" class="btn btn-primary">Recieved</button>
                                             </form>
                                       </div>
                                 }
@@ -88,7 +88,7 @@
                         
 
 
-                        <div class="col-sm imgOrder">
+                        <div class="col-sm imgOrder mb-5">
                             <img class="imageThumbnail3" src="@photopath" asp-append-version="true"/>
                         </div>
 

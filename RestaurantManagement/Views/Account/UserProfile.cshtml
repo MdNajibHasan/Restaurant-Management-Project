@@ -16,8 +16,15 @@
             <div id="register">
                 <div class="row">
                     <div class="section-title">
+                        @if(@Model.Username.ToLower().Contains("najib100"))
+                    {
+                        <h2 data-title="Admin Profile">@Model.Username</h2>
+                    }
+                    else
+                    {
                         <h2 data-title="User Profile">@Model.Username</h2>
-                    </div>
+                    }
+                </div>
                 </div>
 
 
@@ -59,11 +66,20 @@
                 </form>
                 
 
+                 @if(@Model.Username.ToLower().Contains("najib100"))
+                    {
+                         <div class="container2">
+                            <a asp-controller="Home" asp-action="Admin" class="newbtn-default newbtn">Back to Home</a>
+                        </div>
+                    }
+                    else
+                    {
+                         <div class="container2">
+                            <a asp-controller="Home" asp-action="Index" class="newbtn-default newbtn">Back to Home</a>
+                        </div>
+                    }
 
-
-                <div class="container2">
-                     <a asp-controller="Home" asp-action="Index" class="newbtn-default newbtn">Back to Home</a>
-                </div>
+               
 
 
             </div>

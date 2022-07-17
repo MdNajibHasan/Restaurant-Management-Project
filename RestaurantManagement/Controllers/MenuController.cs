@@ -3,6 +3,7 @@ using RestaurantManagement.Models;
 using RestaurantManagement.ViewModels;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace RestaurantManagement.Controllers
 {
@@ -66,6 +67,7 @@ namespace RestaurantManagement.Controllers
 
 
         [HttpGet]
+        [Authorize]
         public ViewResult EditItem(int id)
         {
             ItemModel item = _itemRepository.GetItem(id);
@@ -84,6 +86,7 @@ namespace RestaurantManagement.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> EditItem(EditItemViewModel model)
         {
             if (ModelState.IsValid)
@@ -134,7 +137,7 @@ namespace RestaurantManagement.Controllers
         }
 
 
-
+        [Authorize]
         public IActionResult DeleteItem(int id)
         {
             ItemModel item =  _itemRepository.GetItem(id);
@@ -191,6 +194,7 @@ namespace RestaurantManagement.Controllers
 
 
         [HttpGet]
+        
         public ViewResult PlaceOrder(int id)
         {
             itemPlaceOrder = _itemRepository.GetItem(id);
@@ -198,6 +202,7 @@ namespace RestaurantManagement.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> PlaceOrder(ItemModel model)
         {
            
@@ -245,6 +250,7 @@ namespace RestaurantManagement.Controllers
 
 
         [HttpGet]
+        [Authorize]
         public ViewResult NewOrders()
         {
             var model = _orderStatusRepository.GetAllOrderStatus();
@@ -252,6 +258,7 @@ namespace RestaurantManagement.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ViewResult CompletedOrders()
         {
             var model = _orderStatusRepository.GetAllOrderStatus();
@@ -259,6 +266,7 @@ namespace RestaurantManagement.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ViewResult UserListNewOrder()
         {
             var model = _orderStatusRepository.GetAllOrderStatus();
@@ -267,6 +275,7 @@ namespace RestaurantManagement.Controllers
 
 
         [HttpGet]
+        [Authorize]
         public ViewResult UserListCompletedOrder()
         {
             var model = _orderStatusRepository.GetAllOrderStatus();
@@ -276,6 +285,7 @@ namespace RestaurantManagement.Controllers
 
 
         [HttpGet]
+        [Authorize]
         public IActionResult NewOrdersAdmin(string userName)
         {
             var model = _orderStatusRepository.GetAllOrderStatus();
@@ -292,6 +302,7 @@ namespace RestaurantManagement.Controllers
 
 
         [HttpGet]
+        [Authorize]
         public IActionResult CompletedOrdersAdmin(string userName)
         {
             var model = _orderStatusRepository.GetAllOrderStatus();
@@ -302,6 +313,7 @@ namespace RestaurantManagement.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public ViewResult ChangeStatus(int id)
         {
             var model = _orderStatusRepository.GetOrderStatus(id);
@@ -311,6 +323,7 @@ namespace RestaurantManagement.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> ChangeStatus(OrderStatusModel model)
         {
             if(model != null)
@@ -319,6 +332,21 @@ namespace RestaurantManagement.Controllers
                 return RedirectToAction("UserListNewOrder", "Menu");
             }
 
+            return View(model);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> UpdateStatusCompleted(int id)
+        {
+            var model = _orderStatusRepository.GetOrderStatus(id);
+            if (model != null)
+            {
+                
+                model.OrderStatus = "Completed";
+                _orderStatusRepository.UpdateOrderStatus(model);
+                return RedirectToAction("CompletedOrders", "Menu");
+            }
             return View(model);
         }
 

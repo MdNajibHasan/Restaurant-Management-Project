@@ -49,7 +49,7 @@
                         
                         </div>
                         <li class="nav-item"><a  asp-controller="Admin" asp-action="AddMenu" >Add Items</a></li>
-                        <li class="nav-item"><a  asp-controller="Administration" asp-action="ListRoles" >List Roles</a></li>
+                        @*<li class="nav-item"><a  asp-controller="Administration" asp-action="ListRoles" >List Roles</a></li>*@
                         <li class="nav-item"><a  href="#team">team</a></li>
 
 
@@ -68,6 +68,10 @@
 
                         @if(signInManager.IsSignedIn(User))
                         {
+                            <li class="nav-item">
+                                <a asp-controller="Account" asp-action="UserProfile"  class="nav-link">@User.Identity.Name</a>
+                            </li>
+
                             <li class="nav-item">
                                 <form method="post" asp-action="logout" asp-controller="Account">
                                     <button  type="submit"  class="nbt">
@@ -112,42 +116,13 @@
                     <h1>Dream Cafe Restaurent</h1>
                     <h3 >Welcome to the admin panel. </h3>
                     
-                    <form enctype="multipart/form-data" class="mt-5" method="post">
+                    
 
-                        <div class="form-group row">
-                            <label class="newbtn col-sm-2 text-lg-start"  >Change home Image</label>
-                        
-                            <div class="col-sm-10">
-                                <div class="custom-file">
-                            
-                                    <input  class="custom-file-input"/>
-                                    
-                            
-                                </div>
-                            </div>
+
+                        <div class="mt-5">
+                            <a class="newbtn newbtn-default" asp-controller="Admin" asp-action="AddMenu">Add New Items</a>
                         </div>
-
-
-
-
-                        <div class="mt-3 form-group row">
-                            <label class="newbtn col-sm-2 text-lg-start"  >Change Icon</label>
-                        
-                            <div class="col-sm-10">
-                                <div class="custom-file">
-                            
-                                    <input  class="custom-file-input"/>
-                                    
-                            
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="mt-3">
-                            <button class="newbtn newbtn-default" type="submit">Change Image</button>
-                        </div>
-                    </form>
+                   
                     
                 </div>
             </div>

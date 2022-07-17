@@ -34,7 +34,10 @@
 
         public OrderStatusModel UpdateOrderStatus(OrderStatusModel orderStatusChanges)
         {
-            throw new NotImplementedException();
+            var orderStatus = context.orderStatusModels.Attach(orderStatusChanges);
+            orderStatus.State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            context.SaveChanges();
+            return orderStatusChanges;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using RestaurantManagement.Models;
 using RestaurantManagement.ViewModels;
 using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
@@ -23,6 +24,7 @@ namespace RestaurantManagement.Controllers
 
 
         [HttpGet]
+        [Authorize]
         public ViewResult AddMenu()
         {
             return View();
