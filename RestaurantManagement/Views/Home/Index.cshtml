@@ -117,7 +117,7 @@
         <div class="home-bg"></div>
         <div class="container">
             <div class="row min-vh-100 align-items-center">
-                <div class="home-text">
+                <div class="home-text" data-aos="fade-up" data-aos-duration="1000">
                     <h1>Dream Cafe Restaurent</h1>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. A perspiciatis officiis, cumque nulla tenetur, ullam asperiores eos voluptas distinctio eligendi iure provident unde. Harum quisquam id quod ducimus minima similique fugiat dolorum, cupiditate accusamus commodi sunt molestias saepe praesentium amet. </p>
                     
@@ -137,19 +137,19 @@
         <div class="container">
             <div class="row">
                 <div class="section-title">
-                    <h2 data-title="our story">
+                    <h2 data-title="our story" data-aos="fade-up">
                         about us
                     </h2>
                 </div>
             </div>
 
             <div class="row">
-                <div class="aboutText col-6">
+                <div class="aboutText col-6" data-aos="fade-right">
                     <h3>Welcome To Dream Cafe Restaurent</h3>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat, atque ipsam ipsum veniam quos nemo tenetur nobis, sed in reiciendis vero sit ullam, facilis sapiente qui odit? Fugit officiis sequi at minus quae ratione veniam quibusdam facere, voluptates tempore, velit, dolore veritatis expedita! Veritatis, voluptatibus officiis nulla optio dolor delectus libero aperiam pariatur nam incidunt assumenda voluptatum quod perspiciatis eum.</p>
                     <a href="#our-menu" class="newbtn newbtn-default">check our menu</a>
                 </div>
-                <div class="aboutImg col-6">
+                <div class="aboutImg col-6" data-aos="fade-left">
                     <div class="img-box">
                         <h3>20+ years experience</h3>
                         <img src="Images/Images 2nd/about-img.jpg" alt="about img">
@@ -169,14 +169,14 @@
         <div class="container">
             <div class="row">
                 <div class="section-title">
-                    <h2 data-title="order-now  ">
+                    <h2 data-title="order-now" data-aos="fade-up">
                         our menu
                     </h2>
                 </div>
             </div>
 
             <div class="row">
-                <div class="menu-tabs">
+                <div class="menu-tabs" data-aos="fade-up">
                     <button type="button" class="menu-tab-item active" data-target="#Breakfast">Breakfast</button>
                     <button type="button" class="menu-tab-item " data-target="#lunch">lunch</button>
                     <button type="button" class="menu-tab-item" data-target="#dinner">dinner</button>
@@ -196,7 +196,7 @@
                 if(item.MenuId == "Breakfast")
                 {
                     <div class="col-6">
-                         <div class="menuItem">
+                         <div class="menuItem" data-aos="fade-up-right">
                             <div class="menu-item-title">
                                <a asp-controller="Menu" asp-action="PlaceOrder" asp-route-id="@item.Id"> <img src="@photopath" class="thumbnailIndexMenu"  asp-append-version="true"/></a>
                                 <h3>@item.MenuItemTitle</h3>
@@ -222,7 +222,7 @@
                 if(item.MenuId == "Lunch")
                 {
                     <div class="col-6">
-                         <div class="menuItem">
+                         <div class="menuItem" data-aos="fade-up-left">
                             <div class="menu-item-title">
                                 <a asp-controller="Menu" asp-action="PlaceOrder" asp-route-id="@item.Id"> <img src="@photopath" class="thumbnailIndexMenu"  asp-append-version="true"/></a>
                                 <h3>@item.MenuItemTitle</h3>
@@ -259,7 +259,7 @@
                 if(item.MenuId == "Dinner")
                 {
                     <div class="col-6">
-                         <div class="menuItem">
+                         <div class="menuItem" data-aos="fade-up-right">
                             <div class="menu-item-title">
                                 <a asp-controller="Menu" asp-action="PlaceOrder" asp-route-id="@item.Id"> <img src="@photopath" class="thumbnailIndexMenu"  asp-append-version="true"/></a>
                                 <h3>@item.MenuItemTitle</h3>
@@ -289,7 +289,7 @@
                 if(item.MenuId == "Drinks")
                 {
                     <div class="col-6">
-                         <div class="menuItem">
+                         <div class="menuItem" data-aos="fade-up-left">
                             <div class="menu-item-title">
                                 <a asp-controller="Menu" asp-action="PlaceOrder" asp-route-id="@item.Id"> <img src="@photopath" class="thumbnailIndexMenu"  asp-append-version="true"/></a>
                                 <h3>@item.MenuItemTitle</h3>

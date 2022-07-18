@@ -221,6 +221,8 @@ p{
 }
 
 
+
+
 .newbtn-default{
     border:2px solid var(--main-color)
 
@@ -240,6 +242,9 @@ p{
         color: var(--main-color);
         background-color: var(--dark);
     }
+
+
+
 
 
 /* animation keyframes */
@@ -1340,10 +1345,108 @@ input[type=number] {
     border: 3px solid var(--white-light);
     border-radius:10px;
     background-color: var(--dark);
-    padding: 20px;
+    
     margin-bottom: 10px;
 }
 
 .cardItem:hover{
     border-color:var(--main-color);
+}
+
+.cardItem2 {
+    width:50%;
+    
+    margin-left:25%;
+    border: 3px solid var(--white-light);
+    border-radius: 10px;
+    background-color: var(--dark);
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.cardItem2:hover {
+        border-color: var(--main-color);
+}
+
+
+.menuDesign4 {
+    color: var(--white);
+    margin: 18px;
+    font-size: 15px;
+}
+
+    .menuDesign4:hover {
+        background-color: var(--dark);
+        color: var(--main-color);
+        
+    }
+
+
+
+.container4{
+    margin-bottom:20px;
+    margin-top:60px;
+    text-align:center;
+}
+
+.container5 {
+    margin-bottom:5px;
+    text-align: center;
+}
+.container6 {
+    margin-top: 115px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.menuDesign5 {
+    color: var(--main-color);
+    margin: 18px;
+    font-size: 21px;
+    margin-top:78px;
+}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*responsive*/
+
+@media(max-width:991px)
+{
+    .testi-item {
+        width: calc(50% - 30px);
+    }
+    .team-item{
+        width:50%;
+        margin-bottom:75px;
+    }
+
+    .team-item:not(:last-child) {
+        
+        margin-bottom: 75px;
+    }
+}
+
+@media(max-width:767px) {
+}
+
+
+
+section{
+    overflow:hidden;
 }

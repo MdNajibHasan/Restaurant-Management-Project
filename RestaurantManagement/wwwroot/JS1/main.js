@@ -1,5 +1,15 @@
 
 
+
+
+window.addEventListener("load", function () {
+    AOS.init();
+})
+
+
+
+
+
 /*-----------------
  toggle navbar
 -------------------*/
@@ -60,6 +70,8 @@ menuTabs.addEventListener("click",function(e){
         const menuSection = document.querySelector(".menu-section");
         menuSection.querySelector(".menu-tab-content.active").classList.remove("active");
         menuSection.querySelector(target).classList.add("active");
+
+        AOS.init();
     }
 });
 

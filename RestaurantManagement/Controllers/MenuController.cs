@@ -360,6 +360,28 @@ namespace RestaurantManagement.Controllers
             return View(model);
         }
 
+
+
+
+        [HttpPost]
+        public async  Task<IActionResult> TableSelection(int id)
+        {
+            var model = _tableRepository.GetItem(id);
+            if(model != null)
+            {
+                model.IsSelected = false;
+                model.UserName = "najib100";
+
+                _tableRepository.UpdateItem(model);
+                return RedirectToAction("TableSelection", "Menu");
+            }
+            return View(model);
+        }
+
+
+
+
+
         [HttpGet]
         public ViewResult AddNewTable()
         {
@@ -402,6 +424,29 @@ namespace RestaurantManagement.Controllers
         }
 
 
+
+
+        [HttpGet]
+        public ViewResult TableSelectNow(int id)
+        {
+            var model = _tableRepository.GetItem(id);
+            return View(model);
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> TableSelectNow(TableModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                model.IsSelected = true;
+                model.UserName = User.Identity.Name;
+                _tableRepository.UpdateItem(model);
+                return RedirectToAction("TableSelection", "Menu");
+            }
+            return View(model);
+
+        }
 
     }
 }

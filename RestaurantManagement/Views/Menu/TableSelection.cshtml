@@ -50,28 +50,78 @@
                                 
                             
                              <div class="card-footer">
-                                 <h4 class="menuDesign">Table Number : @table.TableNumber</h4>
-                                 <h4 class="menuDesign">Total Seat : @table.TotalSeat</h4>
-                                 @if(@table.IsSelected)
+                                 
+                        @if(@table.IsSelected && (@table.UserName.ToLower() == (User.Identity.Name.ToLower())))
                                 {
-                                        <h4>Already Selected.</h4>
-                                }
-
-                                @if(User.Identity.Name.ToLower().Contains("najib100") || @table.UserName == User.Identity.Name)
+                                        <h5 class="menuDesign4">Table Number : @table.TableNumber</h5>
+                                        <h5 class="menuDesign4">Total Seat : @table.TotalSeat</h5>
+                                        <h5 class="menuDesign4">Date : @table.Date.ToString("D")</h5>
+                                        <h5 class="menuDesign4">Time : @table.Time.ToString("HH:MM tt")</h5>
+                        }
+                        else if(@table.IsSelected && (User.Identity.Name.ToLower().Contains("najib100")))
                         {
-                                <div class="container2">
-                                    <form method="post">
+                            
+                       
+                            <h5 class="menuDesign4">Table Number : @table.TableNumber</h5>
+                                        <h5 class="menuDesign4">Total Seat : @table.TotalSeat</h5>
+                                        <h5 class="menuDesign4">User Name : @table.UserName</h5>
+                                        
+                                        <h5 class="menuDesign4">Date : @table.Date.ToString("D")</h5>
+                                        <h5 class="menuDesign4">Time : @table.Time.ToString("HH:MM tt")</h5>
+                        
+                        }
+                        else
+                        {
+
+                                <h4 class="menuDesign">Table Number : @table.TableNumber</h4>
+                                 <h4 class="menuDesign">Total Seat : @table.TotalSeat</h4>
+                        }
+
+                                @if( @table.UserName.ToLower() == (User.Identity.Name.ToLower()) && User.Identity.Name != "najib100")
+                        {
+                                <div class="container5">
+                                    <form method="post" asp-route-id="@table.Id">
                                         <button type="submit" class="newbtn newbtn-default">Release</button>
                                     </form>
                             </div>
                         }
+                        else if(User.Identity.Name.ToLower().Contains("najib100") )
+                        {
+                            if(@table.IsSelected)
+                            {
+                                <div class="container5">
+                                    <form method="post" asp-route-id="@table.Id">
+                                        <button type="submit" class="newbtn newbtn-default">Release</button>
+                                    </form>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="container6">
+                                    <form method="post" asp-route-id="@table.Id">
+                                        <button type="submit" class="newbtn newbtn-default">Release</button>
+                                    </form>
+                                </div>
+                            }
+                        }
+
                         else
                         {
-                            <div class="container2">
+                            if(@table.IsSelected)
+                            {
+
+                                <div class="mb-4">
+                                    <h5 class="menuDesign5">Already selected</h5>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="container4">
                                     
                                         <a asp-controller="Menu" asp-action="TableSelectNow" asp-route-id="@table.Id" class="newbtn newbtn-default">Select</a>
                                     
-                            </div>
+                                </div>
+                            }
                         }
 
                             </div>
@@ -86,15 +136,24 @@
 
 
 
-
+    @if(User.Identity.Name.ToLower().Contains("najib100"))
+    {
+        <div class="container2">
+                     <a asp-controller="Home" asp-action="Admin" class="newbtn-default newbtn">Back to Home</a>
+        </div>
+    }
+    else
+    {
+        <div class="container2">
+                     <a asp-controller="Home" asp-action="Index" class="newbtn-default newbtn">Back to Home</a>
+        </div>
+    }
 
 
    
 
 
 
-        <div class="container2">
-                     <a asp-controller="Home" asp-action="Admin" class="newbtn-default newbtn">Back to Home</a>
-        </div>
+        
 
 </section>
