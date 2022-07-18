@@ -16,6 +16,7 @@ namespace RestaurantManagement.Models
         public DbSet<ItemModel> itemModels { get; set; }
 
         public DbSet<OrderStatusModel> orderStatusModels { get; set; }
+        public DbSet<TableModel> tableModels { get; set; }
         
 
         protected override void OnModelCreating(ModelBuilder builder)

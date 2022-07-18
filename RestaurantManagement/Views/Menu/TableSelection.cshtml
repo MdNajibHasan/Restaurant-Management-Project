@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<TableModel>
 
 
 
@@ -18,12 +18,83 @@
             <div>
                 <div class="row">
                     <div class="section-title">
+                         @if(User.Identity.Name.ToLower().Contains("najib100"))
+                    {
+                        <h2 data-title="Table Section">Table Management</h2>
+                    }
+                    else
+                    {
                         <h2 data-title="Table Section">Select Table</h2>
+                    }
                     </div>
                 </div>
             </div>
         </div>
 
+        <div class="row">
+        @foreach(var table in Model)
+    {
+        var photopath = "~/Images/" + (table.PhotoPath ?? "noimage.jpg");
 
+
+        <div class="col-4 mb-3">
+                         <div class="cardItem">
+                            
+
+                        
+                        <img class="card-img-top imageThumbnail2" src="@photopath" asp-append-version="true"/>
+                    
+
+
+                               
+                                
+                            
+                             <div class="card-footer">
+                                 <h4 class="menuDesign">Table Number : @table.TableNumber</h4>
+                                 <h4 class="menuDesign">Total Seat : @table.TotalSeat</h4>
+                                 @if(@table.IsSelected)
+                                {
+                                        <h4>Already Selected.</h4>
+                                }
+
+                                @if(User.Identity.Name.ToLower().Contains("najib100") || @table.UserName == User.Identity.Name)
+                        {
+                                <div class="container2">
+                                    <form method="post">
+                                        <button type="submit" class="newbtn newbtn-default">Release</button>
+                                    </form>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="container2">
+                                    
+                                        <a asp-controller="Menu" asp-action="TableSelectNow" asp-route-id="@table.Id" class="newbtn newbtn-default">Select</a>
+                                    
+                            </div>
+                        }
+
+                            </div>
+                        </div>
+        </div>
+    }
+
+
+
+
+    </div>
+
+
+
+
+
+
+   
+
+
+
+        <div class="container2">
+                     <a asp-controller="Home" asp-action="Admin" class="newbtn-default newbtn">Back to Home</a>
+        </div>
 
 </section>

@@ -14,8 +14,9 @@ namespace RestaurantManagement.Controllers
         private readonly AppDbContext _context;
         private readonly IHostingEnvironment hostingEnvironment;
         private readonly UserManager<ApplicationUser> _userManager;
+        private readonly ITableRepository _tableRepository;
         ItemModel itemPlaceOrder;
-        public MenuController(IItemRepository itemRepository, AppDbContext context,
+        public MenuController(IItemRepository itemRepository, AppDbContext context,ITableRepository tableRepository,
                                 IHostingEnvironment hostingEnvironment, IOrderStatusRepository orderStatusRepository, UserManager<ApplicationUser> userManager)
         {
             _orderStatusRepository = orderStatusRepository;
@@ -23,6 +24,7 @@ namespace RestaurantManagement.Controllers
             _context = context;
             this.hostingEnvironment = hostingEnvironment;
             _userManager = userManager;
+            _tableRepository = tableRepository;
         }
 
 
@@ -346,6 +348,55 @@ namespace RestaurantManagement.Controllers
                 model.OrderStatus = "Completed";
                 _orderStatusRepository.UpdateOrderStatus(model);
                 return RedirectToAction("CompletedOrders", "Menu");
+            }
+            return View(model);
+        }
+
+
+        [HttpGet]
+        public ViewResult TableSelection()
+        {
+            var model = _tableRepository.GetAllItem();
+            return View(model);
+        }
+
+        [HttpGet]
+        public ViewResult AddNewTable()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddNewTable(TableViewModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                string uniqueFileName = null;
+                if (model.PhotoPath != null)
+                {
+                    string uploadsFolder = Path.Combine(hostingEnvironment.WebRootPath, "Images");
+                    uniqueFileName = Guid.NewGuid().ToString() + "_" + model.PhotoPath.FileName;
+                    string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                    model.PhotoPath.CopyTo(new FileStream(filePath, FileMode.Create));
+                    
+                }
+
+
+
+                TableModel table = new TableModel()
+                {
+                    TableNumber = model.TableNumber,
+                    TotalSeat = model.TotalSeat,
+                    IsSelected = false,
+                    UserName = User.Identity.Name,
+                    Date = model.Date,
+                    Time = model.Time,
+                    PhotoPath = uniqueFileName
+                };
+
+
+                _tableRepository.Add(table);
+                return RedirectToAction("TableSelection", "Menu");
             }
             return View(model);
         }

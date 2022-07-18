@@ -1,6 +1,4 @@
-﻿
-
-@inject SignInManager<ApplicationUser> signInManager
+﻿@inject SignInManager<ApplicationUser> signInManager
 
 @{
         ViewBag.Title = "Dream Cafe";
@@ -65,6 +63,22 @@
                             </div>
                         
                         </div>
+
+
+                        <div class="nav-item dropdown">
+                            <a class="dropbtn">Table Section
+                                <i class="fa fa-caret-down"></i>
+                            </a>
+                            
+                            <div class="dropdown-content">
+                                <a asp-controller="Menu" asp-action="AddNewTable">AddNewTable</a>
+                                <a asp-controller="Menu" asp-action="TableSelection">Table Control</a>
+                                
+                            </div>
+                        
+                        </div>
+
+                        
 
                         @if(signInManager.IsSignedIn(User))
                         {

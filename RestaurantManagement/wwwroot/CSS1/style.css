@@ -1133,6 +1133,7 @@ option:hover{
 .imageThumbnail2 {
     height: 300px;
     width: auto;
+    
 }
 
 .cartItem2 {
@@ -1327,4 +1328,22 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+
+.cardItem{
+    
+    border: 3px solid var(--white-light);
+    border-radius:10px;
+    background-color: var(--dark);
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.cardItem:hover{
+    border-color:var(--main-color);
 }
