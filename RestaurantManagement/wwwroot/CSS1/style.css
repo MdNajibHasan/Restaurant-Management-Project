@@ -1283,6 +1283,7 @@ option:hover{
     padding-top: 13px;
     cursor: pointer;
     color: #242424;
+    
     font-size: 20px;
 }
 
@@ -1315,6 +1316,7 @@ option:hover{
 }
 
 .qtQuantity{
+    
     width:50px;
     float:left;
     overflow:hidden;
