@@ -989,6 +989,7 @@ input {
     background-color: inherit;
     font-family: inherit; /* Important for vertical align on mobile phones */
     margin-left: 13px; /* Important for vertical align on mobile phones */
+    margin-bottom:0px;
 }
 
     /* Add a red background color to navbar links on hover */
