@@ -16,7 +16,7 @@
 
             <div>
                 <div class="row">
-                    <div class="section-title">
+                    <div class="section-title" data-aos="fade-down">
                         <h2 data-title="Order Now">@Model.MenuItemTitle</h2>
                     </div>
                 </div>
@@ -31,11 +31,11 @@
                     <td style="width:60%" >
                         <div class="card  addToCartDesign col-sm-2" style="min-width:25rem; max-width:40.5%;">
 
-                        <img class="card-img-top imageThumbnail2" src="@photopath" asp-append-version="true"/>
+                        <img class="card-img-top imageThumbnail2" src="@photopath" asp-append-version="true" data-aos="fade-down"/>
 
                         <div class="card-footer text-center pb-3">
-                            <h3 class="text-black">@Model.MenuItemTitle</h3>
-                            <h5 class="costDesign">$@Model.MenuItemCost</h5>
+                            <h3 class="text-black" data-aos="fade-up">@Model.MenuItemTitle</h3>
+                            <h5 class="costDesign" data-aos="fade-up">$@Model.MenuItemCost</h5>
                            
                           <form method="post">
                                 
@@ -47,7 +47,7 @@
                                 
 
                             <div class="row">
-                                <div class="col-sm">
+                                <div class="col-sm" data-aos="fade-right">
                                     <div class="qty-btn d-flex">
                                 
                                         <div class="quantity">
@@ -57,7 +57,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm">
+                                <div class="col-sm" data-aos="fade-left">
                                      <button type="submit" class="placeOrder newbtn2 newbtn-default2">Place Order</button>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
 
         
 
-        <div class="container2">
+        <div class="container2" data-aos="fade-up" data-aos-duration="1500">
             
             <a asp-controller="Menu" asp-action="@backPage" class="newbtn newbtn-default">Back</a>
         </div>

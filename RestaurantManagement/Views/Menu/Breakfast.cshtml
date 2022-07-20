@@ -12,7 +12,7 @@
 
             <div>
                 <div class="row">
-                    <div class="section-title">
+                    <div class="section-title" data-aos="fade-down" data-aos-duration="1000">
                         <h2 data-title="Breakfast Items">Breakfast Items</h2>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
 
                         <td style="width:50%" class="justify-content-center">
                             
-                    <div class="card m-3  col-sm" style="min-width:18rem; max-width:30.5%;">
+                    <div class="card m-3  col-sm" style="min-width:18rem; max-width:30.5%;"  data-aos="fade-down-left">
 
                         <img class="card-img-top imageThumbnail" src="@photopath" asp-append-version="true"/>
 
@@ -57,7 +57,7 @@
                
                         </td>
 
-                        <td style="width:50%">
+                        <td style="width:50%" data-aos="fade-down-right">
                             <h5 class="menuDesign">Menu Type   :   @item.MenuId</h5>
                             <h5 class="menuDesign">Description :   @item.MenuItemDescription</h5>
                             <h5 class="menuDesign">Quantity    :   @item.MenuItemQuantity</h5>
@@ -77,7 +77,7 @@
         </div>
 
 
-        <div class="container2">
+        <div class="container2" data-aos="fade-up" data-aos-duration="1500">
             <a asp-controller="Home" asp-action="Admin" class="newbtn newbtn-default">Back to Home</a>
         </div>
 

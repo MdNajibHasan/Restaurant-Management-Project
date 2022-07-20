@@ -104,13 +104,13 @@ namespace RestaurantManagement.Controllers
                 string uniqueFileName = null;
                 if (model.PhotoItem != null)
                 {
-                    if (model.PhotoPath != null)
+                    /*if (model.PhotoPath != null)
                     {
                         string filePath1 = Path.Combine(hostingEnvironment.WebRootPath,
                             "Images", model.PhotoPath);
 
                         System.IO.File.Delete(filePath1);
-                    }
+                    }*/
 
 
 
@@ -364,6 +364,7 @@ namespace RestaurantManagement.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public async  Task<IActionResult> TableSelection(int id)
         {
             var model = _tableRepository.GetItem(id);
@@ -383,12 +384,14 @@ namespace RestaurantManagement.Controllers
 
 
         [HttpGet]
+        [Authorize]
         public ViewResult AddNewTable()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> AddNewTable(TableViewModel model)
         {
             if(ModelState.IsValid)
@@ -427,6 +430,7 @@ namespace RestaurantManagement.Controllers
 
 
         [HttpGet]
+        [Authorize]
         public ViewResult TableSelectNow(int id)
         {
             var model = _tableRepository.GetItem(id);
@@ -435,6 +439,7 @@ namespace RestaurantManagement.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> TableSelectNow(TableModel model)
         {
             if(ModelState.IsValid)

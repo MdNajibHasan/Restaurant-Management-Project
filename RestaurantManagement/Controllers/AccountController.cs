@@ -41,6 +41,13 @@ namespace RestaurantManagement.Controllers
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
+
+            if (Request.Cookies["userName"] != null)
+            {
+                Response.Cookies.Delete("userName");
+            }
+
+
             return RedirectToAction("index", "home");
         }
 
@@ -75,6 +82,12 @@ namespace RestaurantManagement.Controllers
                 if(result.Succeeded)
                 {
                     await signInManager.SignInAsync(newUser, isPersistent: false);
+
+                    CookieOptions cookieOptions = new CookieOptions();
+                    cookieOptions.Expires = DateTime.Now.AddDays(2);
+                    Response.Cookies.Append("userName", model.Username, cookieOptions);
+
+
                     return RedirectToAction("Index", "Home");
                 }
 
@@ -113,10 +126,21 @@ namespace RestaurantManagement.Controllers
                 {
                     if(model.Username.ToLower().Contains("najib100"))
                     {
+
+                        CookieOptions cookieOptions = new CookieOptions();
+                        cookieOptions.Expires = DateTime.Now.AddDays(2);
+                        Response.Cookies.Append("userName", model.Username, cookieOptions);
+
+
                         return RedirectToAction("Admin", "Home");
                     }
                     else
                     {
+
+                        CookieOptions cookieOptions = new CookieOptions();
+                        cookieOptions.Expires = DateTime.Now.AddDays(2);
+                        Response.Cookies.Append("userName", model.Username, cookieOptions);
+
                         return RedirectToAction("Index", "Home");
                     }
                 }

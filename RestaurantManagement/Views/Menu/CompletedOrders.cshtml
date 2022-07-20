@@ -16,7 +16,7 @@
 
             <div>
                 <div class="row">
-                    <div class="section-title">
+                    <div class="section-title" data-aos="fade-down">
                         <h2 data-title="Completed Orders">Completed Orders</h2>
                     </div>
                 </div>
@@ -33,32 +33,32 @@
             <div class="forHover">
                 
                     <div class="row">
-                        <div class="col-sm">
+                        <div class="col-sm" >
 
 
 
 
-                            <div class="row">
+                            <div class="row" data-aos="fade-left">
                                 <div  class="col-3">Order Id:</div>
                                 <div  class="menuDesign3 col-9"> @order.OrderNumber</div>
              
                             </div>
-                            <div class="row">
+                            <div class="row" data-aos="fade-right">
                                 <div  class="col-3">Date and Time:</div>
                                  <div  class="menuDesign3 col-9"> @order.CreatedDate</div>
                
                             </div>
-                            <div class="row">
+                            <div class="row" data-aos="fade-left">
                                 <div  class="col-3">Food Title:</div>
                                 <div  class="menuDesign3 col-9"> @order.ItemTitle</div>
                 
                              </div>
-                            <div class="row">
+                            <div class="row" data-aos="fade-right">
                                  <div  class="col-3">Quantity:</div>
                                  <div  class="menuDesign3 col-9"> @order.ItemQuantity</div>
                 
                              </div>
-                             <div class="row">
+                             <div class="row" data-aos="fade-left">
                                 <div  class="col-3">Total Cost:</div>
                                  <div  class="menuDesign3 col-9">$ @order.TotalCost</div>
                 
@@ -66,7 +66,7 @@
            
                 
 
-                              <div class="row mb-xl-5">
+                              <div class="row mb-xl-5" data-aos="fade-right">
                                 <div  class="col-3">Status:</div>
                                 <div  class="menuDesign3 col-9"> @order.OrderStatus</div>
                               </div>
@@ -81,7 +81,7 @@
                         
 
 
-                        <div class="col-sm imgOrder">
+                        <div class="col-sm imgOrder" data-aos="fade-right">
                             <img class="imageThumbnail3" src="@photopath" asp-append-version="true"/>
                         </div>
 
@@ -101,7 +101,7 @@
     }
 
 
-     <div class="container2">
+     <div class="container2" data-aos="fade-up" data-aos-duration="1500">
             <a asp-controller="Home" asp-action="Index" class="newbtn newbtn-default">Back to Home</a>
         </div>
         
